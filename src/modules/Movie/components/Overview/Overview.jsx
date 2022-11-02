@@ -53,11 +53,11 @@ const Overview = ({ movieId }) => {
         style={{
           position: "absolute",
           // background: " rgba(0, 0, 0, 0.3)",
-          top: "0",
-          left: "8%",
+          top: "15% ",
+          left: "15%",
           width: "100%",
           height: "100%",
-          padding: "50px",
+          // padding: "50px",
           zIndex: "1000",
         }}
         className="container "
