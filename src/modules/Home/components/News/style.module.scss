@@ -4,21 +4,25 @@
 }
 .news{
     height: 100%;
-    border: 1px solid black;
+    border: 0px solid #e5e5e5;
     background-color: white;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    box-shadow: 1px 1px 10px #e5e5e5;
     // padding-bottom: 50px;
 }
+
 .anitext{
     font-weight: 600;
     padding: 10px;
 }
- .news:hover .anitext p{
+ .news:hover{
+    box-shadow: 3px 3px 20px #e5e5e5;
+    .anitext p{
     color: rgb(216, 45, 139);
-}
+}}
 .Newp{
     margin-bottom: 5px;
     font-weight: 600;

@@ -25,7 +25,7 @@ const News = () => {
     <div className="container">
         <div className="row">
             {news?.map((newz)=>{
-                return <div style={{height:"232px"}} className={`mt-4 col-sm-3 p-`}>
+                return <div style={{height:"232px"}} className={`mt-4 col-sm-3 `}>
                     <div className={`${scss.news} rounded-3`} >
                         <div width={"100%"} style={{height:"100%"}}>
                             <img width={"100%"} height={"100%"}   src={newz.title} alt="" />
