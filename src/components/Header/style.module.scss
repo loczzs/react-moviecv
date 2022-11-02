@@ -1,0 +1,50 @@
+.dflex {
+  display: flex;
+  justify-content: space-between;
+}
+.dflex a {
+  margin-right: 15px;
+}
+.headerend {
+  display: flex;
+ 
+    div i {
+      color: white;
+    }
+    div span {
+      color: white;
+      margin-left: 10px;
+    }
+  
+}
+.headlogin{
+    margin-right: 15px;
+}
+.dnOne{
+  display: none;
+}
+.stylea{
+  text-decoration: none;
+  margin-right: 15px;
+  color: white;
+}
+.stylea1{
+  font-size: 20px;
+  text-decoration: none;
+  margin-right: 15px;
+  color: black;
+  display: block;
+  margin-bottom: 20px;
+}
+.but{
+  width: 100px;
+  box-shadow: inset 0 0 0 0 #d82d8b;
+  transition: all 0,7s;
+
+}
+.but:hover{
+  // width: 100%;
+  box-shadow: inset 100px 0 0 0 #d82d8b;
+  background: #d82d8b;
+}
+

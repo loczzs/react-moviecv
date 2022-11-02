@@ -1,0 +1,30 @@
+.bg{
+    background-color: #fff0f6;
+    padding: 56px 150px 56px 150px;
+    h2{
+        color: rgb(216, 45, 139);
+        text-align: center;
+        font-family: cursive;
+        
+    }
+    h3{
+        margin-bottom: 32px;
+        color: gray;
+        font-size: 1.125rem;
+        text-align: center;
+    line-height: 1.75rem;
+    line-height: 2.25rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    }
+    .anicol{
+        cursor: pointer;
+    }
+    .anicol:hover p{
+        color: rgb(216, 45, 139);
+    }
+    span{
+        font-size: 13px;
+        color: gray;
+    }
+}

@@ -1,0 +1,35 @@
+.aniHot{
+    background: red;
+    // width: 8%;
+    border: none;
+    text-align: left;
+    padding: 5px;
+    margin-bottom: 10px;
+    p {
+        color: yellow;
+        font-size: 0.75rem;
+        line-height: 1rem;
+        margin-bottom: 0px;
+        animation: animatez 1s linear infinite;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+
+        }
+}
+@keyframes animatez{
+    
+    0%,18%,20%,50.1%,60%,65.1%,80%,90.1%,92%
+    {
+        color: yellow;
+        text-shadow: none;
+    }
+    18.1%,20.1%,30%,50%,60.1%,65%,80.1%,90%,92.1%,100%
+    {
+        color: #fff;
+        text-shadow: 0 0 10px yellow,
+        0 0 20px yellow,
+        0 0 40px yellow,
+        0 0 80px yellow,
+        0 0 160px yellow,
+    }
+}

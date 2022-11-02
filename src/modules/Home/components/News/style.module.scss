@@ -1,0 +1,29 @@
+.bg {
+  background-color: white;
+  padding: 56px 150px 56px 150px;
+}
+.news{
+    height: 100%;
+    border: 1px solid black;
+    background-color: white;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    // padding-bottom: 50px;
+}
+.anitext{
+    font-weight: 600;
+    padding: 10px;
+}
+ .news:hover .anitext p{
+    color: rgb(216, 45, 139);
+}
+.Newp{
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+h2{
+    text-align: center;
+    color: rgb(216, 45, 139);
+}

@@ -1,0 +1,172 @@
+.container {
+  background-color: #ccffff;
+  height: 200vh;
+}
+.square {
+  width: 40px;
+  height: 40px;
+  background: #ffcc33;
+  margin-right: 15px;
+}
+.colorone {
+  width: 40px;
+  height: 40px;
+  background: #33ff00;
+  margin-right: 15px;
+}
+.colortwo {
+  width: 40px;
+  height: 40px;
+  background: #ffffff;
+  margin-right: 15px;
+}
+.colorthree {
+  width: 40px;
+  height: 40px;
+  background: red;
+  margin-right: 15px;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.ghe {
+  color: black;
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 15px;
+  background-color: #ffffff;
+}
+.gheDangDat {
+  background-color: #33ff00;
+}
+.gheDaDat {
+  background-color: #ffcc33;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.gheVip {
+  background-color: #ff00ff;
+}
+.col2 {
+  width: 35%;
+  text-align: center;
+}
+.col1 {
+  width: 60%;
+  text-align: center;
+}
+.tab {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px;
+  h5 {
+    margin-right: 15px;
+  }
+  .colora {
+    color: #ff00ff;
+  }
+  span {
+    color: #ff00ff;
+    font-size: 15px;
+  }
+}
+.buttons {
+  padding: 10px 50px;
+  border-radius: 8px;
+  color: black;
+  border: 1px solid transparent;
+  font-size: 20px;
+  font-weight: 600;
+}
+@media all and (max-width: 1750px) {
+  .container {
+    height: 100%;
+    padding-bottom: 20px ;
+  }
+  .row {
+    flex: none;
+  }
+  .col1 {
+    width: 100%;
+  }
+  .col2 {
+    width: 100%;
+  }
+}
+@media all and (max-width: 1500px) {
+  .container {
+    height: 200vh;
+    padding-bottom: 20px;
+  }
+  .row {
+    flex: none;
+  }
+  .col1 {
+    width: 100%;
+  }
+  .col2 {
+    width: 100%;
+  }
+}
+@media all and (max-width: 1200px) {
+  .container {
+    height: 200vh;
+    padding-bottom: 20px;
+  }
+  .row {
+    flex: none;
+  }
+  .col1 {
+    width: 100%;
+  }
+  .col2 {
+    width: 100%;
+  }
+}
+@media all and (max-width: 992px) {
+  .container {
+    height: 240vh;
+  }
+  .row {
+    flex: none;
+  }
+  .col1 {
+    width: 100%;
+  }
+  .col2 {
+    width: 100%;
+  }
+}
+@media all and (max-width: 768px) {
+  .container {
+    height: 240vh;
+  }
+  .row {
+    flex: none;
+  }
+  .col1 {
+    width: 100%;
+  }
+  .col2 {
+    width: 100%;
+  }
+}
+@media all and (max-width: 576px) {
+  .container {
+    height: 240vh;
+  }
+  .row {
+    flex: none;
+  }
+  .col1 {
+    width: 100%;
+  }
+  .col2 {
+    width: 100%;
+  }
+}
