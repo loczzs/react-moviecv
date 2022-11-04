@@ -22,7 +22,7 @@ const Blog = () => {
   }, []);
   // console.log(blog);
   return (
-    <div className={scss.bg}>
+    <div id="c" className={scss.bg}>
       <h2>Blog phim ảnh</h2>
       <h3>Tổng hợp và Review các bộ phim hot, bom tấn, phim chiếu rạp hay mỗi ngày</h3>
       <div className="container">

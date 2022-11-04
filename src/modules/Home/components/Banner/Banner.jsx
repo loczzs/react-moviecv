@@ -69,7 +69,7 @@ const Banner = () => {
         key={banner.maBanner}
         src={banner.hinhAnh}
         alt="First slide"
-        height={"500px"}
+        height={"600px"}
       />
       
     </Carousel.Item>

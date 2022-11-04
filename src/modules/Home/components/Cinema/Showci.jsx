@@ -83,7 +83,7 @@ const Showci = () => {
                       <p>HOT</p>
                     </button>
                   </div>
-                  <h4 className="mb-3  ">{movie.tenPhim}</h4>
+                  <h4 className="mb-3 pe-auto  "  onClick={() => goToMovie(movie.maPhim)}><a>{movie.tenPhim}</a></h4>
                   {movie.lstLichChieuTheoPhim.map((listShow) => {
                     return (
                       <div

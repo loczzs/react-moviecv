@@ -14,8 +14,10 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-
+import DropdownButton from "react-bootstrap/DropdownButton";
+import Dropdown from "react-bootstrap/Dropdown";
 import Form from "react-bootstrap/Form";
+import { LoginOutlined } from "@ant-design/icons";
 
 const Header = () => {
   const { width } = useWindowSize();
@@ -50,7 +52,6 @@ const Header = () => {
     navigate("/");
   };
   return (
-   
     <Navbar
       style={{ height: "100%" }}
       collapseOnSelect
@@ -59,8 +60,8 @@ const Header = () => {
       variant="white"
     >
       <Container>
-        <Navbar.Brand>
-          <h1 style={{color:'#d82d8b'}}> Tix-Movie</h1>
+        <Navbar.Brand onClick={handlelogo} style={{cursor:"pointer"}}>
+          <h1 style={{ color: "#d82d8b" }}> Tix-Movie</h1>
         </Navbar.Brand>
         <Navbar.Toggle
           variant="primary"
@@ -69,32 +70,43 @@ const Header = () => {
         />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link>
+            <Nav.Link onClick={handlelogo}>
               <b>Trang chủ</b>
             </Nav.Link>
-            <Nav.Link>
+            <Nav.Link href="#b">
               <b>Lịch chiếu</b>
             </Nav.Link>
-            <Nav.Link>
-              <b>Cụm rạp</b>
+            <Nav.Link href="#c">
+              <b>Blog</b>
             </Nav.Link>
           </Nav>
 
           {user ? (
-            <Nav>
-              <Nav.Link>
-                <span className=" me-1 ">Xin Chào</span>
-                <b style={{color:"#d82d8b"}} className="fs-3 ">{user.taiKhoan}</b>
-              </Nav.Link>
-              <Nav.Link className="ms-3">
-                <button
-                  onClick={handleLogout}
-                  className={`${style.but} btn btn-danger`}
-                >
-                  Logout
-                </button>
-              </Nav.Link>
-            </Nav>
+            <NavDropdown title={user.taiKhoan} id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1" className="pe-none">
+                <h4 className="text-primary pe-none">{user.maLoaiNguoiDung}</h4>
+              </NavDropdown.Item>
+              {user.maLoaiNguoiDung === "QuanTri" ? (
+              <NavDropdown.Item onClick={()=>{
+                 navigate("/admin/movies")
+              }} >admin page</NavDropdown.Item>
+            ) : (
+              <></>
+            )}
+             
+              <NavDropdown.Divider />
+              <NavDropdown.Item  href="#/action-3.3">
+              <div className="row  align-items-center">
+                <div className="col-sm-3 d-flex align-items-center">
+                <LoginOutlined  />
+                </div>
+                <div onClick={handleLogout} className="col-sm-9 fs-5 text-danger">
+                  <span>LogOut</span>
+                </div>
+              </div>
+            </NavDropdown.Item>
+              
+            </NavDropdown>
           ) : (
             <Nav>
               <Nav.Link>
@@ -121,6 +133,27 @@ const Header = () => {
               </Nav.Link>
             </Nav>
           )}
+          {/* <DropdownButton id="dropdown-basic-button" title={user.taiKhoan}>
+            <Dropdown.Item href="#/action-1" className="pe-none">
+              <h4 className="text-primary pe-none">{user.maLoaiNguoiDung}</h4>
+            </Dropdown.Item>
+            {user.maLoaiNguoiDung === "QuanTri" ? (
+              <Dropdown.Item href="#/action-2">admin page</Dropdown.Item>
+            ) : (
+              <></>
+            )}
+            <Dropdown.Divider />
+            <Dropdown.Item  href="#/action-3">
+              <div className="row  align-items-center">
+                <div className="col-sm-3 d-flex align-items-center">
+                <LoginOutlined  />
+                </div>
+                <div className="col-sm-9 fs-5 text-danger">
+                  <span>LogOut</span>
+                </div>
+              </div>
+            </Dropdown.Item>
+          </DropdownButton> */}
         </Navbar.Collapse>
       </Container>
       <Offcanvas show={show} onHide={handleClose}>
@@ -133,48 +166,47 @@ const Header = () => {
         </Offcanvas.Header>
         <Offcanvas.Body>
           <div>
-          {user ? (
-            <Nav>
-            <Nav.Link>
-                <button
-                  onClick={handleLogout}
-                  className="btn btn-danger border-0 "
-                >
-                  Logout
-                </button>
-              </Nav.Link>
-              <Nav.Link>
-                <span className=" me-1 ">Xin Chào</span>
-                <b className="fs-3 ">{user.taiKhoan}</b>
-              </Nav.Link>
-              
-            </Nav>
-          ) : (
-            <Nav>
-              <Nav.Link>
-                <button
-                  onClick={handleLogin}
-                  className="  bg-transparent border-0"
-                >
-                  <i className="me-1 ">
-                    <FaUser />
-                  </i>
-                  <span>Đăng nhập</span>
-                </button>
-              </Nav.Link>
-              <Nav.Link>
-                <button
-                  onClick={handleRegister}
-                  className="  text-center bg-transparent border-0"
-                >
-                  <i className="me-1">
-                    <FaUser />
-                  </i>
-                  <span>Đăng ký</span>
-                </button>
-              </Nav.Link>
-            </Nav>
-          )}
+            {user ? (
+              <Nav>
+                <Nav.Link>
+                  <button
+                    onClick={handleLogout}
+                    className="btn btn-danger border-0 "
+                  >
+                    Logout
+                  </button>
+                </Nav.Link>
+                <Nav.Link>
+                  <span className=" me-1 ">Xin Chào</span>
+                  <b className="fs-3 ">{user.taiKhoan}</b>
+                </Nav.Link>
+              </Nav>
+            ) : (
+              <Nav>
+                <Nav.Link>
+                  <button
+                    onClick={handleLogin}
+                    className="  bg-transparent border-0"
+                  >
+                    <i className="me-1 ">
+                      <FaUser />
+                    </i>
+                    <span>Đăng nhập</span>
+                  </button>
+                </Nav.Link>
+                <Nav.Link>
+                  <button
+                    onClick={handleRegister}
+                    className="  text-center bg-transparent border-0"
+                  >
+                    <i className="me-1">
+                      <FaUser />
+                    </i>
+                    <span>Đăng ký</span>
+                  </button>
+                </Nav.Link>
+              </Nav>
+            )}
             <div className="pt-3">
               <a className={style.stylea1}> Home</a>
               <a href="#b" className={style.stylea1}>

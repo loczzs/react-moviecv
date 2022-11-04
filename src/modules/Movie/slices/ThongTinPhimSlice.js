@@ -5,11 +5,12 @@ const initialState = {
   ThongTinPhims: [],
   isLoading: false,
   error: "",
-  cinema:[],
-  cart:""
-  
-  
-
+  adresses: [],
+  cart: "",
+  cart2: "",
+  cinema: [],
+  logoz: "",
+  bg:"",
 };
 
 export const getThongTinPhim = createAsyncThunk(
@@ -17,21 +18,28 @@ export const getThongTinPhim = createAsyncThunk(
   async (movieId, { rejectWithValue }) => {
     try {
       const data = await movieAPI.getThongTinPhim(movieId);
-      return data.heThongRapChieu
+      return data.heThongRapChieu;
     } catch (error) {
       return rejectWithValue(error);
     }
   }
 );
 
-
 const ThongTinPhimSlice = createSlice({
   name: "ticket/info",
   initialState,
   reducers: {
-    showcinema:(state,{payload})=>{
-      state.cinema = payload.cumRapChieu
-      state.cart = payload
+    showAdress: (state, { payload }) => {
+      // console.log(payload);
+      state.adresses = payload.cumRapChieu;
+      state.cart = payload;
+      state.logoz = payload.logo;
+      state.cart2 = payload.cumRapChieu[0];
+      state.cinema = payload.cumRapChieu[0].lichChieuPhim;
+    },
+    showcinema: (state, { payload }) => {
+      state.cart2 = payload;
+      state.cinema = payload.lichChieuPhim;
     },
   },
   extraReducers: (builder) => {
@@ -39,10 +47,17 @@ const ThongTinPhimSlice = createSlice({
       state.isLoading = true;
     });
     builder.addCase(getThongTinPhim.fulfilled, (state, { payload }) => {
-      state.ThongTinPhims = payload
+      console.log(payload);
+      state.ThongTinPhims = payload;
       state.isLoading = false;
-      state.cinema = payload[0]?.cumRapChieu
-      state.cart = payload[0]
+      state.adresses = payload[0]?.cumRapChieu;
+      state.cart = payload[0];
+      state.cart2 = payload[0]?.cumRapChieu[0];
+      state.cinema = payload[0]?.cumRapChieu[0].lichChieuPhim;
+      // state.bg = payload.hinhAnh
+
+
+      state.logoz = payload[0].logo;
     });
     builder.addCase(getThongTinPhim.rejected, (state, { payload }) => {
       state.error = payload;
@@ -50,5 +65,5 @@ const ThongTinPhimSlice = createSlice({
     });
   },
 });
-export const { showcinema } = ThongTinPhimSlice.actions
+export const { showAdress, showcinema } = ThongTinPhimSlice.actions;
 export default ThongTinPhimSlice.reducer;

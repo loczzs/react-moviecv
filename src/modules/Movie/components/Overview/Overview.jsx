@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import useRequest from "hooks/useRequest";
@@ -9,6 +9,7 @@ import { getThongTinPhim } from "modules/Movie/slices/ThongTinPhimSlice";
 import { useDispatch } from "react-redux";
 import scss from "./style.module.scss";
 const Overview = ({ movieId }) => {
+  const [openTrailer, setTrailer] = useState(true);
   const { width } = useWindowSize();
   const {
     data: movie,
@@ -29,76 +30,90 @@ const Overview = ({ movieId }) => {
   let widths = width < 770 ? "100%" : "";
   let display = width < 770 ? "none" : "block";
   return (
-    <div
-      style={{
-        height: "450px",
-        background: `url(${movie.hinhAnh})`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "10% 20%",
-        position: "relative",
-      }}
-    >
-      <div
-        style={{
-          position: "absolute",
-          background: " rgba(0, 0, 0, 0.3)",
-          top: "0",
-          left: "0",
-          width: "100%",
-          height: "100%",
-        }}
-      ></div>
-      <div
-        style={{
-          position: "absolute",
-          // background: " rgba(0, 0, 0, 0.3)",
-          top: "15% ",
-          left: "15%",
-          width: "100%",
-          height: "100%",
-          // padding: "50px",
-          zIndex: "1000",
-        }}
-        className="container "
-      >
+    <div>
+      <div style={{ background: "#27282c" }} className="container  ">
         <div className="row">
-          <div className="col-sm-5" style={{ width: widths }}>
-            <img
-              style={{ borderRadius: "10px" }}
-              width={"100%"}
-              height={"300px"}
-              src={movie.hinhAnh}
-              alt=""
-            />
-          </div>
-          <div className="col-sm-7" style={{ width: widths }}>
+          <div
+            className="col-sm-5 p-3  pe-0"
+            style={{ width: widths, background: "#27282c" }}
+          >
             <div
-              className={width < 770 ? "mb-3 text-white" : "mb-5 text-white"}
-              // style={{ paddingTop:  }}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                height: "100%",
+              }}
             >
-              <div className="col-sm-3">
-                <button className={`${scss.aniHot} rounded-1`}>
-                  <p>HOT</p>
-                </button>
+              <div>
+                <h1 className={scss.name}>{movie.tenPhim}</h1>
               </div>
-              <h1 className="mb-1 text-white">
-                <b>{movie.tenPhim}</b>
-              </h1>
-              <div className="col-sm-7">
-                <span style={{ wordWrap: "break-word", fontWeight: "600" }}>
-                  Nội dung :{" "}
-                  <span > {movie.moTa}</span>
+
+              <div>
+                <span
+                  style={{
+                    wordWrap: "break-word",
+                    fontWeight: "600",
+                    color: "white",
+                  }}
+                >
+                  <span> {movie.moTa}</span>
                 </span>
               </div>
-              <p className="text-white mt-3">
-                Ngày chiếu : {movie.ngayKhoiChieu.slice(0, 10)}
-              </p>
+              <div>
+                <p className="text-white mt-3">
+                  Ngày chiếu : {movie.ngayKhoiChieu.slice(0, 10)}
+                </p>
+              </div>
+              <div className="row mb-3 ">
+                <div className="col-sm-3">
+                  <a href="#b">
+                    <button className={scss.but1}>Mua vé</button>
+                  </a>
+                </div>
+                <div className="col-sm-3">
+                  <button className={scss.but2} onClick={()=>{
+                    setTrailer(!openTrailer)
+                  }}>Trailer</button>
+                </div>
+              </div>
             </div>
-            <div>
-             
-            </div>
-            
+          </div>
+
+          <div className="col-sm-7 ps-0 pe-0 " style={{ width: widths }}>
+            {openTrailer ? (
+              <img
+                //  style={{ borderRadius: "10px" }}
+                width={"100%"}
+                height={"500px"}
+                src={movie.hinhAnh}
+                alt=""
+              />
+            ) : (
+              <div
+                style={{
+                  height: "500px",
+                  paddingRight: "5px",
+                  position: "relative",
+                }}
+              >
+                <button
+                  className={scss.butX}
+                  onClick={() => {
+                    setTrailer(!openTrailer);
+                  }}
+                >
+                  X
+                </button>
+                <iframe
+                  style={{ position: "relative" }}
+                  allow="autoplay"
+                  src={`${movie.trailer}?&autoplay=1`}
+                  width={"100%"}
+                  height={"100%"}
+                  frameborder="0"
+                ></iframe>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -108,3 +123,6 @@ const Overview = ({ movieId }) => {
 
 export default Overview;
 // background:`url(${movie.hinhAnh})`,backgroundRepeat:"no-repeat",backgroundSize:" cover"
+
+
+ 

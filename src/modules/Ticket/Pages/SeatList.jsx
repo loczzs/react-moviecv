@@ -7,7 +7,7 @@ import { selectChair } from "../slices/GioHang";
 
 const SeatList = ({ DanhSachGhe }) => {
   const { DanhSachGheDangDat } = useSelector((state) => state.giohang);
-
+  const { bg } = useSelector((state) => state.thongtinphim);
   const renderSeats = () => {
     return DanhSachGhe?.map((ghe, index) => {
       const ClassGheVip = ghe.loaiGhe === "Vip" ? `${scss.gheVip}` : "";
@@ -32,7 +32,7 @@ const SeatList = ({ DanhSachGhe }) => {
           >
             {ghe.DaDat ? (
               <CloseOutlined
-                style={{ marginBotton: 7.5, fontWeight: "bold" }}
+                style={{ marginBottom: 7.5, fontWeight: "bold" }}
               />
             ) : (
               ghe.stt
@@ -45,8 +45,32 @@ const SeatList = ({ DanhSachGhe }) => {
   };
   return (
     <div className={scss.col1}>
-      <h2>Màn hình</h2>
-      <div>{renderSeats()}</div>
+      {/* <h2>Màn hình</h2> */}
+      <div className="col-8 p-3">
+        <div className={scss.screen}></div>
+        <div>{renderSeats()}</div>
+      </div>
+      <div className="col-4 d-flex justify-content-center flex-column" >
+        <div  className="mb-3 d-flex">
+          <div className={`${scss.ghe} ${scss.gheDangDat} col-sm-6 `}></div>
+            <div className="col-sm-6 p-1">
+              <h3 className="text-white text-start">Ghế Đang Đặt</h3>
+            </div>
+        </div>
+        <div  className="mb-3 d-flex">
+          <div className={`${scss.ghe} ${scss.gheDaDat} col-sm-6 `}></div>
+            <div className="col-sm-6 p-1">
+              <h3 className="text-white text-start">Ghế Đã Đặt</h3>
+            </div>
+        </div>
+        <div  className="mb-3 d-flex">
+          <div className={`${scss.ghe} ${scss.gheVip} col-sm-6 `}></div>
+            <div className="col-sm-6 p-1">
+              <h3 className="text-white text-start">Ghế Vip</h3>
+            </div>
+        </div>
+
+      </div>
     </div>
   );
 };

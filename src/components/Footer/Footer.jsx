@@ -57,23 +57,23 @@ const Footer = () => {
           <div className="col-sm-2">
             <h5> MOBBILE APP</h5>
             <div className="row">
-              <div className="col-sm-2 me-3">
+              <div className="col-sm-4 ">
                <h2> <FaApple /></h2>
               </div>
   
-              <div className="col-sm-2">
+              <div className="col-sm-4">
                <h2> <FaRobot /></h2>
               </div>
             </div>
           </div>
           <div className="col-sm-2">
-            <h5>SOCIAL</h5>
+            <h5>SOCIAL MEDIA</h5>
             <div className="row">
-              <div className="col-sm-2 me-3">
+              <div className="col-sm-4 ">
                <h2> <FaFacebook /></h2>
               </div>
   
-              <div className="col-sm-2">
+              <div className="col-sm-4">
                <h2> <FaInstagram /></h2>
               </div>
             </div>

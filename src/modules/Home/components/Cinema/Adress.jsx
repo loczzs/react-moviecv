@@ -37,7 +37,8 @@ const Adress = () => {
               width: "100%",
               backgroundColor: backgroundColors,
               marginBottom: "10px",
-              position:"relative"
+              position:"relative",
+              cursor:"pointer"
             }}
             onClick={() => handlleShowcinema(address)}
             key={address.maCumRap}
@@ -68,8 +69,8 @@ const Adress = () => {
               <b style={{fontSize:"14px"}}> {address.tenCumRap}</b>
               {/* <p className="fs-6 m-0">{address.diaChi}</p> */}
             </div>
-            <div className="col-sm-2">
-              <span style={{color:"gray "}}><RightOutlined /></span>
+            <div className="col-sm-2  d-flex align-items-center" >
+             <RightOutlined style={{color:"gray",}} />
             </div>
           </div>
         );

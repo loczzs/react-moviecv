@@ -20,7 +20,7 @@ const Logo = () => {
   };
 
   return (
-    <div  className="row mb-1">
+    <div className="row mb-1">
       {cinemas.map((cinema) => {
         let border = "1px solid gray";
 
@@ -32,33 +32,33 @@ const Logo = () => {
         }
 
         return (
-        <div style={{width:"70px" ,}}>
-        <div
-            onClick={() => handleShowwadress(cinema)}
-            key={cinema.maHeThongRap}
-            className="rounded-3"
-            style={{
-              border: border,
-              padding:"5px",
-              cursor:"pointer",
-              
-              
-              width: "50px",
-              height: "50px",
-              // backgroundColor: backgroundColors,
-            }}
-          >
-            <img
-              height={"100%"}
+          <div style={{ width: "70px" }}>
+            <div
+              onClick={() => handleShowwadress(cinema)}
               key={cinema.maHeThongRap}
-              width={"100%"}
-              src={cinema.logo}
-              alt=""
-            />
+              className="rounded-3"
+              style={{
+                border: border,
+                padding: "5px",
+                cursor: "pointer",
+
+                width: "50px",
+                height: "50px",
+                // backgroundColor: backgroundColors,
+              }}
+            >
+              <img
+                height={"100%"}
+                key={cinema.maHeThongRap}
+                width={"100%"}
+                src={cinema.logo}
+                alt=""
+              />
+            </div>
+            <p style={{ fontSize: "0.75rem" }}>
+              {cinema.tenHeThongRap.slice(0, 6) + ".."}
+            </p>
           </div>
-          <p  style={{fontSize:"0.75rem"}}>{cinema.tenHeThongRap.slice(0,6)+".."}
-          </p>
-        </div>
         );
       })}
     </div>
