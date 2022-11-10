@@ -2,11 +2,12 @@ import { useNavigate } from "react-router-dom";
 import React, { useState, useRef } from "react";
 import useRequest from "hooks/useRequest";
 import movieAPI from "apis/movieAPI";
-import scss from "./style.module.scss"
+import scss from "./style.module.scss";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import imgGirl from "./img/defaultImage.jpg"
+import imgGirl from "./img/defaultImage.jpg";
+import { logDOM } from "@testing-library/react";
 const MovieShowing = () => {
   // useNavigate là một hook dùng để điều hướng url
   const navigate = useNavigate();
@@ -62,40 +63,51 @@ const MovieShowing = () => {
       linkDefault: imgGirl,
     }));
   };
+  const moviez = movies?.filter((movie) => {
+    return movie.dangChieu === true;
+  });
+  console.log(moviez);
 
   return (
     <div className={scss.img}>
-    
-      
       <div className="container">
         <h1 className={scss.fsh1}>Phim đang chiếu</h1>
         <Slider {...settings} className="row bg-transparent">
-          {movies?.map((movie) => {
-            return (
-              <button
-                // style={{border:"none"}}
-                className=" col-sm-3 p-3 bg-transparent border-0 "
-                onClick={() => goToMovie(movie.maPhim)}
-                key={movie.maPhim}
-              >
-              {/* <div className={scss.lines}></div> */}
-                <div className={`${scss.scale} ${scss.card}`}>
-                
-                  <img
-                    style={{ borderRadius: "8px" }}
-                    width={"100%"}
-                    height={"400px"}
-                    src={movie.hinhAnh}
-                    alt=""
-                  />
-                </div>
-                <div>
-                  <h5 className="text-white text-start mt-3  ">{movie.tenPhim}</h5>
-                </div>
-               
-              </button>
-            );
-          })}
+          {moviez
+            ?.map((movie) => {
+              return (
+                <button
+                  // style={{border:"none"}}
+                  className=" col-sm-3 p-3 pt-1 bg-transparent border-0 "
+                  onClick={() => {
+                    goToMovie(movie.maPhim);
+                  }}
+                  key={movie.maPhim}
+                >
+                  {/* <div className={scss.lines}></div> */}
+                  <div className={`${scss.scale}  `}>
+                    {/* <div className={scss.fade}>
+                    <button className={scss.butAni} onClick={(e)=> logABC(e,movie.maPhim)
+                    
+                    } ><span>Trailer</span></button>
+                  </div> */}
+                    <img
+                      style={{ borderRadius: "8px" }}
+                      width={"100%"}
+                      height={"300px"}
+                      src={movie.hinhAnh}
+                      alt=""
+                    />
+                  </div>
+                  <div>
+                    <h5 className="text-white text-start mt-3  ">
+                      {movie.tenPhim}
+                    </h5>
+                  </div>
+                </button>
+              );
+            })
+            .reverse()}
         </Slider>
       </div>
     </div>

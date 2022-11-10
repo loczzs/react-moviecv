@@ -1,0 +1,110 @@
+
+.bg{
+    position: relative;
+    cursor: pointer;
+    // transition: 0.5s;
+    .fade {
+        // left: 40%;
+        position: absolute;
+        background-color: rgba($color: #000000, $alpha: 0.6);
+        width: 100%;
+        height: 100%;
+       z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        visibility: hidden;
+      
+        align-items: center;
+        // justify-content: center;
+        // transition: all 5s;
+        overflow: hidden;
+        // margin-right: 100px;
+        // transition: all 2000ms;
+        .butAni {
+          //   visibility: hidden;
+          padding: 10px 25px;
+          border: 2px solid #00eeff;
+          font-weight: 600;
+          letter-spacing: 2px;
+          background: transparent;
+          color: #fff;
+          -webkit-box-reflect: below 0px linear-gradient (transparent, #0002);
+          transition: margin-top 2000ms;
+        //   transition: 0.5;
+        margin-top: 500px;
+          position: relative;
+          span{
+            position: relative;
+            z-index: 100;
+          }
+          //   margin-top: 500px;
+        }
+      }
+}
+.butAni:hover{
+        color: #000;
+        transition-delay: 1.5s;
+        box-shadow: 0 0 10px #00eeff,
+        0 0 20px #00eeff,
+        0 0 40px #00eeff,
+        0 0 160px #00eeff
+    }
+.bg:hover .fade{
+    visibility: visible;
+}
+.bg:hover .fade .butAni{
+    margin-top: 0px;
+}
+.butAni:nth-child(2) {
+    filter: hue-rotate(80deg);
+  }
+  .butAni::before {
+    content: " ";
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 2px;
+    background-color: #00eeff;
+    box-shadow: 5px -8px 0 #00eeff,
+                  5px 8px 0 #00eeff;
+      transition: width 0.5s,left 0.5s,height 0.5s, box-shadow 0.5s;
+      transition-delay: 1s,0.5s,0s,0s;
+  
+  }
+  .butAni:hover::before{
+      width: 60%;
+      height: 105%;
+      left: -2px;
+      box-shadow: 5px 0 0 #00eeff,
+                  5px 0 0 #00eeff;
+  transition-delay: 0s,0s,0.5s,1s;    
+  
+  }
+  
+  .butAni::after {
+      content: " ";
+      position: absolute;
+      right: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 2px;
+      background-color: #00eeff;
+      box-shadow: -5px -8px 0 #00eeff,
+                    -5px 8px 0 #00eeff;
+        transition: width 0.5s,right 0.5s,height 0.5s, box-shadow 0.5s;
+        transition-delay: 1s,0.5s,0s,0s;
+    
+    }
+    .butAni:hover::after{
+        width: 60%;
+        height: 105%;
+        right: -2px;
+        box-shadow: -5px 0 0 #00eeff,
+                    -5px 0 0 #00eeff;
+    transition-delay: 0s,0s,0.5s,1s;    
+    
+    }

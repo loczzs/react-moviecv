@@ -46,8 +46,8 @@ const SeatList = ({ DanhSachGhe }) => {
   return (
     <div className={scss.col1}>
       {/* <h2>Màn hình</h2> */}
-      <div className="col-8 p-3">
-        <div className={scss.screen}></div>
+      <div className="col-8 p-3 justify-content-center">
+        <div className={scss.screen}>Màn Hình</div>
         <div>{renderSeats()}</div>
       </div>
       <div className="col-4 d-flex justify-content-center flex-column" >
@@ -69,6 +69,9 @@ const SeatList = ({ DanhSachGhe }) => {
               <h3 className="text-white text-start">Ghế Vip</h3>
             </div>
         </div>
+        <a href="#z" className="text-start">
+        <button className="btn btn-success" >Thông Tin Đặt Vé</button>
+        </a>
 
       </div>
     </div>

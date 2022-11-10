@@ -8,7 +8,11 @@ import useWindowSize from "hooks/useWindowsize";
 import { getThongTinPhim } from "modules/Movie/slices/ThongTinPhimSlice";
 import { useDispatch } from "react-redux";
 import scss from "./style.module.scss";
+import { RightOutlined ,HomeOutlined} from "@ant-design/icons";
+import Modal from "react-bootstrap/Modal";
+import moment from "moment/moment";
 const Overview = ({ movieId }) => {
+  const [lgShow, setLgShow] = useState(false);
   const [openTrailer, setTrailer] = useState(true);
   const { width } = useWindowSize();
   const {
@@ -30,90 +34,120 @@ const Overview = ({ movieId }) => {
   let widths = width < 770 ? "100%" : "";
   let display = width < 770 ? "none" : "block";
   return (
-    <div>
-      <div style={{ background: "#27282c" }} className="container  ">
-        <div className="row">
+    <div className="bg-white">
+      <Modal
+      
+        size="lg"
+        show={lgShow}
+        onHide={() => setLgShow(false)}
+        aria-labelledby="example-modal-sizes-title-lg"
+      >
+        <Modal.Body style={{background:"black",padding:"0px"}}>
+          
           <div
-            className="col-sm-5 p-3  pe-0"
-            style={{ width: widths, background: "#27282c" }}
+            style={{
+              height: "500px",
+              paddingRight: "5px",
+              position: "relative",
+            }}
           >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                height: "100%",
+            <button
+              className={scss.butX}
+              onClick={() => {
+                setLgShow(false);
               }}
             >
-              <div>
-                <h1 className={scss.name}>{movie.tenPhim}</h1>
-              </div>
+              X
+            </button>
+            <iframe
+              style={{ position: "relative" }}
+              allow="autoplay"
+              src={`${movie.trailer}?&autoplay=1`}
+              width={"100%"}
+              height={"100%"}
+              frameborder="0"
+            ></iframe>
+          </div>
+        </Modal.Body>
+      </Modal>
+      <div className={scss.navbarover}>
+        
+          <p style={{marginBottom:'8px'}}><HomeOutlined className= {scss.backhome} onClick={()=>{
+            navigate('/')
+          }}/></p>
+        
+        <RightOutlined style={{ color: "gray", marginTop: "2px" }} />
+        <span>movie</span>
+        <RightOutlined style={{ color: "gray", marginTop: "2px" }} />
+        <span>{movie.tenPhim}</span>
+        {/* <RightOutlined style={{color:"gray",}} /> */}
+      </div>
+      <div
+        id="cv"
+        style={{
+          backgroundImage: `url(${movie.hinhAnh})`,
 
-              <div>
-                <span
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center right",
+          backgroundSize: "cover",
+        }}
+      >
+        <div style={{ background: "rgba(0,0,0,0.7)", padding: "70px 0px" }}>
+          <div style={{ width: "70%", margin: "auto" }}>
+            <div className="row">
+              <div className="col-sm-5 " style={{ width: widths }}>
+              <img
+                    //  style={{ borderRadius: "10px" }}
+                    width={"100%"}
+                    height={"400px"}
+                    src={movie.hinhAnh}
+                    alt=""
+                  />
+              </div>
+              <div className="col-sm-7 p-3 " style={{ width: widths }}>
+                <div
                   style={{
-                    wordWrap: "break-word",
-                    fontWeight: "600",
-                    color: "white",
+                    display: "flex",
+                    flexDirection: "column",
+                    height: "100%",
                   }}
                 >
-                  <span> {movie.moTa}</span>
-                </span>
-              </div>
-              <div>
-                <p className="text-white mt-3">
-                  Ngày chiếu : {movie.ngayKhoiChieu.slice(0, 10)}
-                </p>
-              </div>
-              <div className="row mb-3 ">
-                <div className="col-sm-3">
-                  <a href="#b">
-                    <button className={scss.but1}>Mua vé</button>
-                  </a>
-                </div>
-                <div className="col-sm-3">
-                  <button className={scss.but2} onClick={()=>{
-                    setTrailer(!openTrailer)
-                  }}>Trailer</button>
+                  <div>
+                    <h1 className={scss.name}>{movie.tenPhim}</h1>
+                  </div>
+
+                  <div style={{ width: "100%" }}>
+                    <p className={scss.pmota}>Nội dung</p>
+
+                    <span className={scss.spanmota}> {movie.moTa}</span>
+                  </div>
+                  <div>
+                    <p className="text-white mt-3">
+                      <span className={scss.spanmota}>Ngày chiếu :</span>
+                      {moment(movie?.ngayKhoiChieu?.slice(0, 10)).format(
+                        "DD/MM/YYYY"
+                      )}
+                    </p>
+                  </div>
+                  <div className="row mb-3 ">
+                    <div className="col-sm-3">
+                      <a href="#b">
+                        <button className={scss.but1}>Mua vé</button>
+                      </a>
+                    </div>
+                    <div className="col-sm-3">
+                      <button
+                        className={scss.but2}
+                        onClick={() => setLgShow(true)}
+                        
+                      >
+                        Trailer
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div className="col-sm-7 ps-0 pe-0 " style={{ width: widths }}>
-            {openTrailer ? (
-              <img
-                //  style={{ borderRadius: "10px" }}
-                width={"100%"}
-                height={"500px"}
-                src={movie.hinhAnh}
-                alt=""
-              />
-            ) : (
-              <div
-                style={{
-                  height: "500px",
-                  paddingRight: "5px",
-                  position: "relative",
-                }}
-              >
-                <button
-                  className={scss.butX}
-                  onClick={() => {
-                    setTrailer(!openTrailer);
-                  }}
-                >
-                  X
-                </button>
-                <iframe
-                  style={{ position: "relative" }}
-                  allow="autoplay"
-                  src={`${movie.trailer}?&autoplay=1`}
-                  width={"100%"}
-                  height={"100%"}
-                  frameborder="0"
-                ></iframe>
-              </div>
-            )}
           </div>
         </div>
       </div>
@@ -123,6 +157,3 @@ const Overview = ({ movieId }) => {
 
 export default Overview;
 // background:`url(${movie.hinhAnh})`,backgroundRepeat:"no-repeat",backgroundSize:" cover"
-
-
- 

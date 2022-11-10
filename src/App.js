@@ -49,7 +49,7 @@ function App() {
               element={<UpdateMovie />}
             />
             {/* <Route path="movies/time" element={<Times />} /> */}
-            <Route path="movies/time" element={<Times />} />
+            <Route path="movies/time/:movieId" element={<Times />} />
             <Route path="movies/adduser" element={<AddUser/>} />
             <Route path="movies/updateuser/:userId" element={<UpdateUser />} />
             

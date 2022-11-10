@@ -8,7 +8,7 @@ const Showci = () => {
   const navigate = useNavigate();
   const { cinemas, isLoading, error, cinema, cart2, addresses, logoz } =
     useSelector((state) => state.cinema);
-  console.log(cart2);
+  // console.log(cart2);
   if (!cinema) {
     return;
   }

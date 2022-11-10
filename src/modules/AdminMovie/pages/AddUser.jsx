@@ -6,11 +6,19 @@ import { addmovie } from "modules/Home/slices/movieadSlice";
 import { useDispatch } from "react-redux";
 import { message,notification } from "antd";
 import { adduser } from "modules/Home/slices/useradSlice";
+import { useEffect } from "react";
 
 
 const AddUser = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  useEffect(() => {
+    document.body.style.background =
+      "linear-gradient(120deg, #2980b9, #8e44ad)";
+    return () => {
+      document.body.style.background = null;
+    };
+  });
 
   const {
     register,
@@ -30,6 +38,7 @@ const AddUser = () => {
     },
     mode: "onTouched",
   });
+ 
  const handlechangetype = ( evt)=>{
   const type = evt.target.value
   setValue("maLoaiNguoiDung",type)
@@ -57,12 +66,15 @@ const AddUser = () => {
     }
   };
   return (
-    <div className={scss.center}>
-      <h1 className={scss.h1}>Thêm User</h1>
+   <div className={scss.center}>
+     <div className="p-3 bg-white rounded-3">
+      <h1 >Thêm User</h1>
       <form onSubmit={handleSubmit(onSubmit)} className={scss.form}>
         <div className={scss.field}>
+        <p><label htmlFor="taiKhoan">Tài Khoản</label></p>
           <input
             // hidden
+            id="taiKhoan"
             type="text"
             {...register("taiKhoan", {
               required: {
@@ -71,12 +83,13 @@ const AddUser = () => {
               },
             })}
           />
-          <span></span>
-          <label>tài khoản</label>
-          {errors.taiKhoan && <p>{errors.taiKhoan.message}</p>}
+          
+          {errors.taiKhoan && <span>{errors.taiKhoan.message}</span>}
         </div>
         <div className={scss.field}>
+        <p><label htmlFor="hoTen">Họ Tên</label></p>
           <input
+          id="hoTen"
             type="text"
             {...register("hoTen", {
               required: {
@@ -85,12 +98,13 @@ const AddUser = () => {
               },
             })}
           />
-          <span></span>
-          <label>hoTen</label>
-          {errors.hoTen && <p>{errors.hoTen.message}</p>}
+          
+          {errors.hoTen && <span>{errors.hoTen.message}</span>}
         </div>
-        <div className={scss.field}>
+        <div >
+        <p><label htmlFor="email">email</label></p>
           <input
+          id="email"
             type="email"
             {...register("email", {
               required: {
@@ -103,37 +117,41 @@ const AddUser = () => {
               }
             })}
           />
-          <span></span>
-          <label>email</label>
-          {errors.email && <p>{errors.email.message}</p>}
+         
+          {errors.email && <span>{errors.email.message}</span>}
         </div>
         <div className={scss.field}>
+        <p><label htmlFor="SDT">Số Điện Thoại</label></p>
           <input
             type="number"
             {...register("soDT", {
-              required: {
-                value: true,
-                message: "Số điện thoại không được để trống",
-              },
+              required: true,
+              maxLength:10,
+              minLength:10,
+               
+              
               pattern:{
                 value:/^[0-9]*$/,
                 message: "không đúng định dạng số"
               },
              
-              maxLength:11
+              // maxLength:11
             })}
           />
-          <span></span>
-          <label>Số điện thoại</label>
-          {errors.soDT && <p>{errors.soDT.message}</p>}
-          {errors.soDT?.type === "maxLength" && <p>nhiều nhất 11 kí tự</p>}
+          
+          {errors.soDT?.type === "required" && <span>không được để trống</span>}
+          {errors.soDT?.type === "maxLength" && <span>nhiều nhất 10 kí tự</span>}
+          {errors.soDT?.type === "minLength" && <span>ít nhất 10 kí tự</span>}
           
           
         </div>
         <div className={scss.field}>
+        <p><label htmlFor="pass">Mật Khẩu</label></p>
           <input
+
             // hidden
-            type="text"
+            type="password"
+            id="pass"
             {...register("matKhau", {
               required: {
                 value: true,
@@ -141,40 +159,30 @@ const AddUser = () => {
               },
             })}
           />
-          <span></span>
-          <label> mật khẩu</label>
-          {errors.matKhau && <p>{errors.matKhau.message}</p>}
+          
+          {errors.matKhau && <span>{errors.matKhau.message}</span>}
         </div>
         
 
         <div >
-          <select placeholder="mã loại khách hàng" onChange={handlechangetype} className="form-control" >
-            <option value="">mã loại người dùng</option>
+            <p><label htmlFor="ma">Mã Loại Người Dùng</label></p>
+          <select id="ma" placeholder="mã loại khách hàng" onChange={handlechangetype} className="form-control" {...register("maLoaiNguoiDung",{
+            validate: value => value !== ""
+          })} >
+            <option value="">chọn mã loại người dùng</option>
             <option value="KhachHang">khách hàng</option>
             <option value="QuanTri">quản trị</option>
           </select>
+          {errors.maLoaiNguoiDung?.type === "validate" && (<span>vui lòng chọn mã người dùng</span>)}
           
-          <p className="mt-3">mã loại người dùng</p>
+          
         
         </div>
-        {/* <div className={scss.field}>
-          <input
-            type="text"
-            {...register("ngayKhoiChieu", {
-              required: {
-                value: true,
-                message: "ngày không được để trống",
-              },
-              // dayjs("2022/09/09").format("dd/mm/yyyy"),
-            })}
-          />
-          <span></span>
-          <label>Ngày Khởi Chiếu</label>
-          {errors.ngayKhoiChieu && <p>{errors.ngayKhoiChieu.message}</p>}
-        </div> */}
-        <button>Thêm user</button>
+      
+        <button className="mt-3 btn btn-info">Thêm user</button>
       </form>
     </div>
+   </div>
   );
 };
 

@@ -29,6 +29,7 @@ const Ticket = () => {
       <div className={scss.row}>
         <img src="" alt="" />
         <div
+        className="col-sm-6"
           style={{
             width: "100%",
             backgroundImage: `url(${thongTinPhim?.hinhAnh})`,
@@ -42,7 +43,7 @@ const Ticket = () => {
           
           <SeatList DanhSachGhe={danhSachGhe} />
         </div>
-        <SeatDetail ThongTinPhim={thongTinPhim} />
+        <SeatDetail  ThongTinPhim={thongTinPhim} />
       </div>
     </div>
   );

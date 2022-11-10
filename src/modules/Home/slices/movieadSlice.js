@@ -22,7 +22,7 @@ export const getDetail = createAsyncThunk(
   async (title, { rejectWithValue }) => {
     try {
       const data = await movieAPI.getMovieDetails(title);
-      console.log(data)
+      // console.log(data)
       
       return data;
     } catch (error) {
@@ -37,7 +37,7 @@ export const updateMovies = createAsyncThunk(
     try {
       const datazzs= await movieAPI.UpdateMovie(title);
       // console.log(datazzs)
-      dispatch(getMovie())
+      // dispatch(getMovie())
     } catch (error) {
       // console.log(error)
       return rejectWithValue(error);

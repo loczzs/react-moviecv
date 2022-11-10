@@ -34,7 +34,7 @@ console.log(DanhSachGheDangDat);
 
   return (
  
-    <div className={`${scss.col2}`}>
+    <div id="z" className={`${scss.col2}`}>
       <div className="container  ">
         <h2 className="mb-3"> Danh Sách ghế đã chọn</h2>
         <div className="row">

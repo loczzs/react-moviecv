@@ -1,5 +1,5 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import scss from "./styles.module.scss";
 import { useNavigate, useParams } from "react-router-dom";
 // import { useDispatch } from "react-redux";
@@ -17,6 +17,11 @@ const UpdateUser = () => {
   const { userId } = useParams();
   useEffect(() => {
     dispatch(getDetailss(userId));
+    document.body.style.background =
+    "linear-gradient(120deg, #2980b9, #8e44ad)";
+  return () => {
+    document.body.style.background = null;
+  };
   }, []);
   const {
     register,
@@ -39,8 +44,9 @@ const UpdateUser = () => {
     setValue("matKhau",updateuser.matKhau);
     setValue("email",updateuser.email)
     setValue("soDT",updateuser.soDT);
-    setValue("maLoaiNguoiDung",updateuser.maLoaiNguoiDung);
+    // setValue("maLoaiNguoiDung",updateuser.maLoaiNguoiDung);
     setValue("hoTen",updateuser.hoTen);
+    setValue("maLoaiNguoiDung",updateuser.maLoaiNguoiDung);
    //  setValue("hinhAnh", null);
    //  setValue("ngayKhoiChieu",updateMovie.ngayKhoiChieu);
    //  handleChange()
@@ -73,10 +79,12 @@ const UpdateUser = () => {
     }
   };
   return (
-    <div className={scss.center}>
-      <h1 className={scss.h1}>update User</h1>
-      <form onSubmit={handleSubmit(onSubmit)} className={scss.form}>
-        <div className={scss.field}>
+   <div className={scss.center}>
+     <div className="p-3 bg-white rounded-3">
+      <h1 >update User</h1>
+      <form onSubmit={handleSubmit(onSubmit)} >
+        <div >
+          <p><label htmlFor="">Tài Khoản</label></p>
           <input
           disabled
             // hidden
@@ -90,10 +98,12 @@ const UpdateUser = () => {
           />
           <span></span>
           
-          {errors.taiKhoan && <p>{errors.taiKhoan.message}</p>}
+          {errors.taiKhoan && <span>{errors.taiKhoan.message}</span>}
         </div>
-        <div className={scss.field}>
+        <div >
+        <p><label htmlFor="hoTen">Họ Tên</label></p>
           <input
+          id="hoTen"
             type="text"
             {...register("hoTen", {
               required: {
@@ -102,12 +112,13 @@ const UpdateUser = () => {
               },
             })}
           />
-          <span></span>
-          <label>hoTen</label>
-          {errors.hoTen && <p>{errors.hoTen.message}</p>}
+          
+          {errors.hoTen && <span>{errors.hoTen.message}</span>}
         </div>
-        <div className={scss.field}>
+        <div >
+        <p><label htmlFor="email">email</label></p>
           <input
+          id="email"
             type="email"
             {...register("email", {
               required: {
@@ -120,11 +131,11 @@ const UpdateUser = () => {
               }
             })}
           />
-          <span></span>
-          <label>email</label>
-          {errors.email && <p>{errors.email.message}</p>}
+          
+          {errors.email && <span>{errors.email.message}</span>}
         </div>
-        <div className={scss.field}>
+        <div >
+        <p ><label htmlFor="SDT">Số Điện Thoại</label></p>
           <input
             type="number"
             {...register("soDT", {
@@ -140,16 +151,17 @@ const UpdateUser = () => {
               maxLength:11
             })}
           />
-          <span></span>
-          <label>Số điện thoại</label>
+          
           {errors.soDT && <p>{errors.soDT.message}</p>}
-          {errors.soDT?.type === "maxLength" && <p>nhiều nhất 11 kí tự</p>}
+          {errors.soDT?.type === "maxLength" && <span>nhiều nhất 11 kí tự</span>}
           
           
         </div>
-        <div className={scss.field}>
+        <div >
+        <p><label htmlFor="pass">Mật Khẩu</label></p>
           <input
             // hidden
+            id="pass"
             type="text"
             {...register("matKhau", {
               required: {
@@ -158,27 +170,33 @@ const UpdateUser = () => {
               },
             })}
           />
-          <span></span>
-          <label> mật khẩu</label>
-          {errors.matKhau && <p>{errors.matKhau.message}</p>}
+          
+          {errors.matKhau && <span>{errors.matKhau.message}</span>}
         </div>
         
 
         <div >
-          <select placeholder="mã loại khách hàng" onChange={handlechangetype} className="form-control" >
-            <option value="">mã loại người dùng</option>
+        <p><label htmlFor="ma">Mã Loại Người Dùng</label></p>
+          <select id="ma" placeholder="mã loại khách hàng" onChange={handlechangetype} {...register("maLoaiNguoiDung", {
+                required: {
+                  value: true,
+                  message: "Chọn dự án",
+                },
+              })} >
+            
             <option value="KhachHang">khách hàng</option>
             <option value="QuanTri">quản trị</option>
           </select>
           
-          <p className="mt-3">mã loại người dùng</p>
+          
         
         </div>
         
-        <button>update User</button>
+        <button className="mt-3 btn btn-info" >update User</button>
       </form>
       {abc()}
     </div>
+   </div>
     
   );
 };
