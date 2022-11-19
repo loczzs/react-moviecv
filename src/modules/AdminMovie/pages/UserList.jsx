@@ -1,8 +1,8 @@
 import React from "react";
 // import scss from "./style.module.scss";
-import useRequest from "hooks/useRequest";
+
 import { useNavigate } from "react-router-dom";
-import userAPI from "apis/userAPI";
+
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getUser } from "modules/Home/slices/useradSlice";
@@ -10,8 +10,9 @@ import { useSelector } from "react-redux";
 import { DeleteUser } from "modules/Home/slices/useradSlice";
 // import scss from "./style.module.scss"
 import { Layout, Menu, notification } from "antd";
-import { Button, Modal, Space } from "antd";
+import { Button, Modal, Space, Table, Tag } from "antd";
 import scss from "./style.module.scss";
+import { ExclamationCircleOutlined } from "@ant-design/icons";
 
 const { Header, Sider, Content, Footer } = Layout;
 const { confirm } = Modal;
@@ -24,6 +25,19 @@ const UserList = () => {
   console.log(users);
   const handleDelete = (userid, acces) => {
     dispatch(DeleteUser({ userid, acces }));
+  };
+  const showConfirm = (userId, acces) => {
+    console.log(userId, acces);
+    confirm({
+      title: `bạn muốn xóa phim ${userId} ?`,
+      icon: <ExclamationCircleOutlined />,
+      onOk() {
+        handleDelete(userId, acces);
+      },
+      onCancel() {
+        console.log("Cancel");
+      },
+    });
   };
   const navigate = useNavigate();
 
@@ -54,90 +68,71 @@ const UserList = () => {
   const handleClickc = () => {
     navigate("/admin/movies");
   };
-  return (
-    // <div className={scss.center}>
-    //   <div className={scss.menu}>
-    //     <div class={scss.names}>
-    //       <h1>Menu</h1>
-    //     </div>
-    //     <ul>
-    //       <li onClick={handleClickc}>
-    //         <img src="/img/icon1.png" alt="" />
-    //         <span>Phim</span>
-    //       </li>
-    //       <li onClick={handleClicka}>
-    //         <img src="/img/icon2.png" alt="" />
-    //         <span>Lịch chiếu</span>
-    //       </li>
-    //       <li onClick={handleClickb}>
-    //         <img src="/img/icon4.png" alt="" />
-    //         <span>User</span>
-    //       </li>
-    //     </ul>
-    //   </div>
-    //   <div class={scss.container}>
-    //     <div class={scss.header}>
-    //       <div class={scss.nav}>
+  const columns = [
+    {
+      title: "Tài Khoản",
+      dataIndex: "taiKhoan",
+      key: "taiKhoan",
+      render: (text) => <a>{text}</a>,
+    },
+    {
+      title: "Họ Tên",
+      dataIndex: "hoTen",
+      key: "hoTen",
+    },
+    {
+      title: "Email",
+      dataIndex: "email",
+      key: "email",
+    },
+    {
+      title: "Level",
+      dataIndex: "maLoaiNguoiDung",
+      key: "maLoaiNguoiDung",
+      render: (_, Text) => (
+        
+        <div>
+          {Text.maLoaiNguoiDung === "QuanTri" ? (
+            <Tag color={"volcano"} key={Text.taiKhoan}>
+              Quản Trị
+            </Tag>
+          ) : (
+            <Tag color={"green"} key={Text.taiKhoan}>
+              Khách Hàng
+            </Tag>  
+          )}
+        </div>
+      ),
+    },
 
-    //         <div class={scss.add}>
-    //           <a href="#" class="btn" onClick={handleClick}>
-    //             Thêm User
-    //           </a>
-    //         </div>
-    //         <div class={scss.user}>
-    //           <p>
-    //             <img src="/img/icon4.png" alt="" />
-    //           </p>
-    //           <a onClick={handleLogout}>Logout</a>
-    //         </div>
-    //       </div>
-    //     </div>
-    //     <div className={scss.content}>
-    //       <h2>Danh sách User</h2>
-    //       <table className={scss.table}>
-    //         <thead>
-    //           <tr>
-    //             <th>Tài khoản</th>
-    //             <th>Họ tên</th>
-    //             <th>Email</th>
-    //             <th>Sđt</th>
-    //             <th>Mật khẩu</th>
-    //             <th>mã loại người dùng</th>
-    //             <th>Hành động</th>
-    //           </tr>
-    //         </thead>
-    //         <tbody>
-    //           {users?.map((user) => {
-    //             return (
-    //               <tr key={user.taiKhoan}>
-    //                 <td>{user.taiKhoan}</td>
-    //                 <td>{user.hoTen}</td>
-    //                 <td>{user.email}</td>
-    //                 <td>{user.soDT}</td>
-    //                 <td>{user.matKhau}</td>
-    //                 <td>{user.maLoaiNguoiDung}</td>
-    //                 <td>
-    //                   <button
-    //                     onClick={() => onSelectUser(user.taiKhoan)}
-    //                   >
-    //                     Update
-    //                   </button>
-    //                   <button
-    //                   onClick={() =>
-    //                     handleDelete(user.taiKhoan, usersz.accessToken)
-    //                   }
-    //                   >
-    //                     Delete
-    //                   </button>
-    //                 </td>
-    //               </tr>
-    //             );
-    //           })}
-    //         </tbody>
-    //       </table>
-    //     </div>
-    //   </div>
-    // </div>
+    {
+      title: "Action",
+      key: "action",
+      render: (_, record) => (
+        <Space size="middle">
+          {record.maLoaiNguoiDung === "QuanTri" ? (
+            <></>
+          ) : (
+            <div>
+              <a
+                onClick={() => onSelectUser(record.taiKhoan)}
+                className="text-primary text-decoration-none me-3"
+              >
+                edit
+              </a>
+              <a
+                onClick={() => showConfirm(record.taiKhoan, usersz.accessToken)}
+                className="text-primary text-decoration-none"
+              >
+                Delete
+              </a>
+            </div>
+          )}
+        </Space>
+      ),
+    },
+  ];
+  return (
     <Layout
       style={{
         minHeight: "100vh",
@@ -180,7 +175,7 @@ const UserList = () => {
             background: "white",
           }}
         >
-          <table className="table table-striped">
+          {/* <table className="table ">
             <thead>
               <tr>
                 <th scope="col">Tài khoản</th>
@@ -197,35 +192,37 @@ const UserList = () => {
               {users
                 ?.map((user) => {
                   return (
-                    <tr key={user.taiKhoan}>
+                    <tr style={user.maLoaiNguoiDung === "QuanTri" ? {height:"100px",background:"#f2f2f2"}:{}} key={user.taiKhoan}>
                       <td>{user.taiKhoan}</td>
                       <td>{user.hoTen}</td>
                       <td>{user.email}</td>
                       <td>{user.soDT}</td>
                       <td>{user.matKhau}</td>
                       <td>{user.maLoaiNguoiDung}</td>
-                      <td>
+                    {user.maLoaiNguoiDung === "KhachHang" ?   <td>
                         <button
                           className="btn btn-success mb-1 w-100"
                           onClick={() => onSelectUser(user.taiKhoan)}
                         >
                           Update
                         </button>
+                        
                         <button
                           className="btn btn-danger w-100"
                           onClick={() =>
-                            handleDelete(user.taiKhoan, usersz.accessToken)
+                            showConfirm(user.taiKhoan, usersz.accessToken)
                           }
                         >
                           Delete
                         </button>
-                      </td>
+                      </td>:<td></td>}
                     </tr>
                   );
                 }).reverse()}
                 
             </tbody>
-          </table>
+          </table> */}
+          <Table columns={columns} dataSource={[...users]?.reverse()} />
         </Content>
         <Footer
           style={{

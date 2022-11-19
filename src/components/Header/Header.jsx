@@ -87,7 +87,7 @@ const Header = () => {
                 <p className="pe-none">loại tài khoản : {user.maLoaiNguoiDung}</p>
               </NavDropdown.Item>
               {user.maLoaiNguoiDung === "QuanTri" ? (
-              <NavDropdown.Item href="#action/3.2" style={{height:"50px"}} onClick={()=>{
+              <NavDropdown.Item style={{height:"50px"}} onClick={()=>{
                  navigate("/admin/movies")
               }} ><p>đến trang admin</p></NavDropdown.Item>
             ) : (
@@ -114,23 +114,23 @@ const Header = () => {
               <Nav.Link>
                 <button
                   onClick={handleLogin}
-                  className="  bg-transparent border-0"
+                  className=" d-flex align-items-center  bg-transparent border-0"
                 >
-                  <i className="me-1 ">
+                  
                     <FaUser />
-                  </i>
-                  <span>Đăng nhập</span>
+                  
+                  <span className="ms-1"> Đăng nhập</span>
                 </button>
               </Nav.Link>
               <Nav.Link>
                 <button
                   onClick={handleRegister}
-                  className="  text-center bg-transparent border-0"
+                  className="d-flex align-items-center  text-center bg-transparent border-0"
                 >
-                  <i className="me-1">
+               
                     <FaUser />
-                  </i>
-                  <span>Đăng ký</span>
+                  
+                  <span className="ms-1">Đăng ký</span>
                 </button>
               </Nav.Link>
             </Nav>

@@ -11,7 +11,7 @@ const News = () => {
       );
       // Thành công => gọi hàm setUsers(data) để gán data từ API cho state users
       setNew(data);
-      console.log(data);
+      
     } catch (error) {
       console.log(error);
     }
@@ -24,9 +24,9 @@ const News = () => {
       <h2>Tin tức - Khuyến mãi</h2>
       <div className="container">
         <div className="row">
-          {news?.map((newz) => {
+          {news?.map((newz,index) => {
             return (
-              <div className="col-3 mb-3">
+              <div key={index} className="col-3 mb-3">
                 <div className={`${scss.news} rounded-3 `}>
                   <div>
                     <img

@@ -8,21 +8,13 @@ import News from "../components/News/News";
 const Home = () => {
   return (
     <div className="bg-white">
-      <div className=" p-3 pt-0 " style={{ background: "black" }}>
-        <div className="">
-          
-          <div className="row">
-            <div className="col-sm-7 ">
-              <Banner />
-            </div>
-            <div className="col-sm-5">
-              <Moviesc />
-            </div>
-          </div>
-        </div>
-      </div>
+      <Banner />
+
+     
+
       <MovieShowing />
       <Cinema />
+      <Moviesc />
       <Blog />
       <News />
     </div>

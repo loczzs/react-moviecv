@@ -8,7 +8,7 @@ import useWindowSize from "hooks/useWindowsize";
 import { getThongTinPhim } from "modules/Movie/slices/ThongTinPhimSlice";
 import { useDispatch } from "react-redux";
 import scss from "./style.module.scss";
-import { RightOutlined ,HomeOutlined} from "@ant-design/icons";
+import { RightOutlined ,HomeOutlined,CloseCircleOutlined} from "@ant-design/icons";
 import Modal from "react-bootstrap/Modal";
 import moment from "moment/moment";
 const Overview = ({ movieId }) => {
@@ -36,13 +36,13 @@ const Overview = ({ movieId }) => {
   return (
     <div className="bg-white">
       <Modal
-      
+        style={{background:"black"}}
         size="lg"
         show={lgShow}
         onHide={() => setLgShow(false)}
         aria-labelledby="example-modal-sizes-title-lg"
       >
-        <Modal.Body style={{background:"black",padding:"0px"}}>
+        <Modal.Body style={{background:"black",padding:"0px",paddingTop:"20px"}}>
           
           <div
             style={{
@@ -57,7 +57,7 @@ const Overview = ({ movieId }) => {
                 setLgShow(false);
               }}
             >
-              X
+              <CloseCircleOutlined /> 
             </button>
             <iframe
               style={{ position: "relative" }}

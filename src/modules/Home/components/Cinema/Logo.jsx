@@ -32,7 +32,7 @@ const Logo = () => {
         }
 
         return (
-          <div style={{ width: "70px" }}>
+          <div key={cinema.maHeThongRap} style={{ width: "70px" }}>
             <div
               onClick={() => handleShowwadress(cinema)}
               key={cinema.maHeThongRap}

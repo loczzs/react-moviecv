@@ -8,13 +8,16 @@ import { Modal } from "antd";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
+import { Space, Table, Tag } from "antd";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
+import { ExclamationCircleOutlined } from "@ant-design/icons";
 import {
   DeleteMovie,
   getDetail,
   getMovie,
 } from "modules/Home/slices/movieadSlice";
+
 import { Routes, Route, Link, NavLink } from "react-router-dom";
 const { Header, Sider, Content, Footer } = Layout;
 
@@ -23,6 +26,7 @@ const { confirm } = Modal;
 const MovieList = () => {
   const dispatch = useDispatch();
   const { movies, isLoading, error } = useSelector((state) => state.movie);
+  console.log(movies);
 
   useEffect(() => {
     dispatch(getMovie());
@@ -53,7 +57,21 @@ const MovieList = () => {
   };
 
   const handleDelete = (movieId, acces) => {
+    console.log(movieId, acces);
     dispatch(DeleteMovie({ movieId, acces }));
+  };
+  const showConfirm = (movie, acces) => {
+    console.log(movie, acces);
+    confirm({
+      title: `bạn muốn xóa phim ${movie.tenPhim} ?`,
+      icon: <ExclamationCircleOutlined />,
+      onOk() {
+        handleDelete(movie.maPhim, acces);
+      },
+      onCancel() {
+        console.log("Cancel");
+      },
+    });
   };
 
   const handleClickb = () => {
@@ -63,8 +81,53 @@ const MovieList = () => {
   const handleClickc = () => {
     navigate("/admin/movies");
   };
+  const columns = [
+    {
+      title: "Mã Phim",
+      dataIndex: "maPhim",
+      key: "maPhim",
+      render: (text) => <a>{text}</a>,
+    },
+    {
+      title: "Tên Phim",
+      dataIndex: "tenPhim",
+      key: "tenPhim",
+    },
+    {
+      title: "Hình Ảnh",
+      dataIndex: "hinhAnh",
+      key: "hinhAnh",
+      render: (_, record) => (
+        <img src={record.hinhAnh} height={"100px"} width={"100px"} alt="" />
+      ),
+    },
+    {
+      title: "Nội Dung ",
+      dataIndex: "moTa",
+      key: "moTa",
+    },
+
+    {
+      title: "Action",
+      key: "action",
+      render: (_, record) => (
+        <div>
+          <button onClick={() => onSelectProduct(record.maPhim)} className="btn btn-success mb-1 w-100">edit</button>
+
+          <button onClick={() =>
+                              showConfirm(record, user.accessToken)
+                            } className="btn btn-danger mb-1 w-100">Delete</button>
+          {record.sapChieu ? (
+            <button className="btn btn-primary w-100 pe-none">phim sắp chiếu</button>
+          ) : (
+            <button onClick={()=>handleClicka(record.maPhim)} className="btn btn-primary w-100">tạo lịch chiếu</button>
+          )}
+        </div>
+      ),
+    },
+  ];
+
   return (
-   
     <Layout
       style={{
         minHeight: "100vh",
@@ -87,11 +150,20 @@ const MovieList = () => {
         />
         <div className="container text-white mt-3">
           <button className={scss.but2}>Movie</button>
-          <button onClick={handleClick} className={scss.but}>Tạo Phim</button>
-          <button  onClick={handleClickb} className={scss.but}>User</button>
-          <button  onClick={()=>{
-            navigate("/")
-          }} className={scss.but}>movie page</button>
+          <button onClick={handleClick} className={scss.but}>
+            Tạo Phim
+          </button>
+          <button onClick={handleClickb} className={scss.but}>
+            User
+          </button>
+          <button
+            onClick={() => {
+              navigate("/");
+            }}
+            className={scss.but}
+          >
+            movie page
+          </button>
         </div>
       </Sider>
       <Layout>
@@ -99,11 +171,11 @@ const MovieList = () => {
 
         <Content
           style={{
-            margin: "24px 16px 0",
+            // margin: "24px 16px 0",
             background: "white",
           }}
         >
-          <div>
+          {/* <div>
             <table className="table">
               <thead>
                 <tr>
@@ -156,14 +228,14 @@ const MovieList = () => {
                           <button
                             className="btn btn-danger w-100 mt-3"
                             onClick={() =>
-                              handleDelete(movie.maPhim, user.accessToken)
+                              showConfirm(movie, user.accessToken)
                             }
                           >
                             Delete
                           </button>
-                          <button onClick={()=>handleClicka(movie.maPhim)} className="btn btn-primary w-100 mt-3">
+                          {movie.sapChieu ?<button className="btn btn-primary w-100 mt-3 pe-none">Phim sắp chiếu</button>:<button onClick={()=>handleClicka(movie.maPhim)} className="btn btn-primary w-100 mt-3">
                             Tạo Lịch Chiếu
-                          </button>
+                          </button>}
                         </td>
                       </tr>
                     );
@@ -171,10 +243,12 @@ const MovieList = () => {
                   .reverse()}
               </tbody>
             </table>
-          </div>
+          </div> */}
+          <Table columns={columns} dataSource={[...movies].reverse()} />
         </Content>
         <Footer
           style={{
+            width:"100% " ,
             textAlign: "center",
           }}
         >

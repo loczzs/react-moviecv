@@ -12,7 +12,7 @@ const Blog = () => {
       );
       // Thành công => gọi hàm setUsers(data) để gán data từ API cho state users
       setBlog(data);
-      console.log(data);
+      
     } catch (error) {
       console.log(error);
     }

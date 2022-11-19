@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import movieAPI from "apis/movieAPI";
 const initialState = {
-  movies: [],
+  movies:[],
   isLoading: false,
   error: null,
   updateMovie: [],

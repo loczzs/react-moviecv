@@ -83,7 +83,7 @@ const UpdateUser = () => {
      <div className="p-3 bg-white rounded-3">
       <h1 >update User</h1>
       <form onSubmit={handleSubmit(onSubmit)} >
-        <div >
+        <div className={scss.divma} >
           <p><label htmlFor="">Tài Khoản</label></p>
           <input
           disabled
@@ -100,7 +100,7 @@ const UpdateUser = () => {
           
           {errors.taiKhoan && <span>{errors.taiKhoan.message}</span>}
         </div>
-        <div >
+        <div className={scss.divma} >
         <p><label htmlFor="hoTen">Họ Tên</label></p>
           <input
           id="hoTen"
@@ -115,7 +115,7 @@ const UpdateUser = () => {
           
           {errors.hoTen && <span>{errors.hoTen.message}</span>}
         </div>
-        <div >
+        <div className={scss.divma} >
         <p><label htmlFor="email">email</label></p>
           <input
           id="email"
@@ -134,7 +134,7 @@ const UpdateUser = () => {
           
           {errors.email && <span>{errors.email.message}</span>}
         </div>
-        <div >
+        <div className={scss.divma} >
         <p ><label htmlFor="SDT">Số Điện Thoại</label></p>
           <input
             type="number"
@@ -157,7 +157,7 @@ const UpdateUser = () => {
           
           
         </div>
-        <div >
+        <div className={scss.divma} >
         <p><label htmlFor="pass">Mật Khẩu</label></p>
           <input
             // hidden
@@ -175,7 +175,7 @@ const UpdateUser = () => {
         </div>
         
 
-        <div >
+        <div className={scss.divma} >
         <p><label htmlFor="ma">Mã Loại Người Dùng</label></p>
           <select id="ma" placeholder="mã loại khách hàng" onChange={handlechangetype} {...register("maLoaiNguoiDung", {
                 required: {

@@ -153,7 +153,7 @@ const Times = () => {
           
           {errors.giaVe && <p>{errors.giaVe.message}</p>}
         </div>
-        <button className="btn btn-info">Thêm Lịch Chiếu</button>
+        <button className="btn btn-info mt-3">Thêm Lịch Chiếu</button>
         {setinput()}
       </form>
     </div>

@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import scss from "../MovieShowing/style.module.scss";
 import {RightOutlined } from "antd"
+import moment from "moment/moment";
 const Showci = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -95,13 +96,16 @@ const Showci = () => {
                           
                           className="butsi"
                         >
-                          <span style={{ color: "#38bdf8" }}>
-                            {listShow.ngayChieuGioChieu.slice(0, 10)}
+                        <span style={{ color: "#2092ce" }}>
+                            {listShow.ngayChieuGioChieu.slice(11)}
                           </span>
                           ~
-                          <span style={{ color: "#2092ce" }}>
-                            {listShow.ngayChieuGioChieu.slice(11)}
-                          </span>{" "}
+                          <span style={{ color: "#38bdf8" }}>
+                            {moment(listShow.ngayChieuGioChieu.slice(0, 10)).format(
+                        "DD/MM/YYYY"
+                      )}
+                          </span>
+                         
                         </button>
                       </div>
                     );

@@ -8,7 +8,7 @@ const Adress = () => {
   const dispatch = useDispatch();
   const { cinemas, isLoading, error, cinema, cart, addresses, cart2, logoz } =
     useSelector((state) => state.cinema);
-  console.log(addresses);
+
   if (!addresses) {
     return;
   }

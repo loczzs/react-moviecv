@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef,useEffect } from "react";
 import useRequest from "hooks/useRequest";
 import movieAPI from "apis/movieAPI";
 import scss from "./style.module.scss";
@@ -17,10 +17,11 @@ const MovieShowing = () => {
     isLoading,
     error,
   } = useRequest(() => movieAPI.getMovies());
-
+  
   const goToMovie = (movieId) => {
     navigate(`/movie/${movieId}`);
   };
+  
   const [defaultImage, setDefaultImage] = useState({});
   const settings = {
     dots: false,
@@ -66,7 +67,7 @@ const MovieShowing = () => {
   const moviez = movies?.filter((movie) => {
     return movie.dangChieu === true;
   });
-  console.log(moviez);
+  
 
   return (
     <div className={scss.img}>

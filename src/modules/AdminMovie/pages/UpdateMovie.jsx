@@ -15,7 +15,7 @@ const UpdateMovie = () => {
   const { movies, isLoading, updateMovie, error } = useSelector(
     (state) => state.movie
   );
-console.log(updateMovie);
+
   const [imgPreview, setImgPreview] = useState("");
   // const valet = updateMovie?.dangChieu
 
@@ -49,6 +49,7 @@ console.log(updateMovie);
     mode: "onTouched",
   });
   useEffect(() => {
+    
     dispatch(getDetail(movieId));
     document.body.style.background =
       "linear-gradient(120deg, #2980b9, #8e44ad)";

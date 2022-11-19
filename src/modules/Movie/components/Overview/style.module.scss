@@ -119,8 +119,12 @@
     position: absolute;
     z-index: 1000;
     // width: 100%;
-    top: 10%;
-    right: 0;
-    transform: translateX();
+    top: 8%;
+    right: -50px;
+    
+    transition: all 0.5s;
 
+}
+.butX:hover{
+    transform: scale(1.25,1.25);
 }
