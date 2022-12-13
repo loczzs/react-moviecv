@@ -10,6 +10,7 @@ const SeatList = ({ DanhSachGhe }) => {
   const { bg } = useSelector((state) => state.thongtinphim);
   const renderSeats = () => {
     return DanhSachGhe?.map((ghe, index) => {
+      // console.log(ghe);
       const ClassGheVip = ghe.loaiGhe === "Vip" ? `${scss.gheVip}` : "";
       const ClassGheDaDat = ghe.daDat === true ? `${scss.gheDaDat}` : "";
       let ClassGheDD = "";
@@ -45,7 +46,8 @@ const SeatList = ({ DanhSachGhe }) => {
   };
   return (
     <div className={scss.col1}>
-      {/* <h2>Màn hình</h2> */}
+      <div className="col-12"> <h1 className={`${scss.fsh1} mb-0 pt-3`}>ĐẶT VÉ XEM PHIM</h1></div>
+      
       <div className="col-8 p-3 justify-content-center">
         <div className={scss.screen}>Màn Hình</div>
         <div>{renderSeats()}</div>
@@ -70,7 +72,7 @@ const SeatList = ({ DanhSachGhe }) => {
             </div>
         </div>
         <a href="#z" className="text-start">
-        <button className="btn btn-success" >Thông Tin Đặt Vé</button>
+        <button className="btn btn-danger" >Thông Tin Đặt Vé</button>
         </a>
 
       </div>

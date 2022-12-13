@@ -16,43 +16,36 @@ const Showtimes = ({ movieId }) => {
   }, []);
 
   return (
-    <div id="b" className="con">
+    <div id="b" className="container con">
       <h1
         style={{ color: "#d82d8b", fontFamily: "unset" }}
         className="text-center mb-3"
       >
         Lịch chiếu phim
       </h1>
-      {width > 1000 ? (
+    
         <div
-          className=" bg-white rounded-3"
-          style={{ padding: "50px", border: "1px solid black" }}
+          className="containcard bg-white rounded-3"
         >
           <div style={{ height: "100%" }} className="pdcss">
             <Logoz movieId={movieId} />
           </div>
           <div
-            className="row rounded-3 p-3 "
-            style={{
-              height: "550px",
-              border: "1px solid black",
-              width: "100%",
-            }}
+            className="cardz rounded-3 p-3 "
+           
           >
             <div
-              style={{ height: "100%", borderRight: "1px solid gray" }}
-              className=" pe-3 ps-3 col-sm-4"
+              
+              className=" cardz1 pe-3   col-sm-4"
             >
               <Address movieId={movieId} />
             </div>
-            <div style={{ height: "100%" }} className="  col-sm-8 ">
+            <div style={{ height: "100%" }} className="cardz2  col-sm-8 ">
               <Showtimez movieId={movieId} />
             </div>
           </div>
         </div>
-      ) : (
-        <></>
-      )}
+     
     </div>
   );
 };

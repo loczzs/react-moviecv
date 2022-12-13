@@ -1,6 +1,15 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 .img {
   background: url(../../../../../public/img/momo2.jpg);
   // height: 500px;
+  padding: 0px 25px;
+  margin: auto;
+  width: 100%;
   background-size: contain;
   // padding: 50px;
   padding-top: 70px;
@@ -222,5 +231,11 @@ transition-delay: 0s,0s,0.5s,1s;
     color: #fff;
     text-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 40px yellow,
       0 0 80px yellow, 0 0 160px yellow;
+  }
+}
+@media screen and (max-width: 992px) {
+  .img{
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 }

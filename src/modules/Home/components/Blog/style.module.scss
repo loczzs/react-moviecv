@@ -28,3 +28,24 @@
         color: gray;
     }
 }
+@media screen and (max-width: 1200px){
+    .bg{
+        padding: 20px
+    }
+}
+@media screen and (max-width: 800px) {
+    .bg{
+        padding: 10px;
+    }
+    .anicol{
+        width: 50%;
+    }
+}
+@media screen and (max-width: 375px) {
+    .bg{
+        padding: 10px;
+    }
+    .anicol{
+        width: 100%;
+    }
+}

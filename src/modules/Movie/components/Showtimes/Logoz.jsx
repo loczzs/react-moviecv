@@ -20,11 +20,11 @@ const Logoz = ({ movieId }) => {
   return (
     <div className="row mb-1">
       {ThongTinPhims?.map((thongtinphim) => {
-        let border = "1px solid gray";
+        let border = "1px solid black";
 
           if (thongtinphim.maHeThongRap === cart.maHeThongRap) {
           
-            border = "1px solid red";
+            border = "1px solid #eb2f96";
           } 
         return (
          

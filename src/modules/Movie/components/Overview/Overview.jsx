@@ -93,11 +93,12 @@ const Overview = ({ movieId }) => {
         }}
       >
         <div style={{ background: "rgba(0,0,0,0.7)", padding: "70px 0px" }}>
-          <div style={{ width: "70%", margin: "auto" }}>
+          <div className={scss.carddetail}>
             <div className="row">
               <div className="col-sm-5 " style={{ width: widths }}>
               <img
                     //  style={{ borderRadius: "10px" }}
+                    className="rounded-3"
                     width={"100%"}
                     height={"400px"}
                     src={movie.hinhAnh}
@@ -129,8 +130,8 @@ const Overview = ({ movieId }) => {
                       )}
                     </p>
                   </div>
-                  <div className="row mb-3 ">
-                    <div className="col-sm-3">
+                  <div className="d-flex mb-3 ">
+                    <div className="col-sm-3 me-3">
                       <a href="#b">
                         <button className={scss.but1}>Mua vé</button>
                       </a>

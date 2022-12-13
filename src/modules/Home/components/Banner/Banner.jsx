@@ -5,7 +5,7 @@ import Carousel from "react-bootstrap/Carousel";
 import { useEffect, useState } from "react";
 import scss from "./style.module.scss";
 import Modal from "react-bootstrap/Modal";
-import {CloseCircleOutlined} from "@ant-design/icons";
+import { CloseCircleOutlined } from "@ant-design/icons";
 const data = [
   {
     name: "Top Gun: Maverick",
@@ -39,7 +39,7 @@ const Banner = () => {
   //   isLoading,
   //   error,
   // } = useRequest(() => movieAPI.getBanners());
-
+  // vd , mảng trailers
   // const bannersMapped = banners?.map((banner, index) => {
   //   return { ...banner, trailer: TRAILERS[index] };
   // });
@@ -56,111 +56,104 @@ const Banner = () => {
   //  }
   const [Banner, setBanner] = useState(data[0]);
   const [lgShow, setLgShow] = useState(false);
-  const [time,setTime] = useState(false)
-main()
-   function main(params) {
-    if(time){
-      return
-    }else(
-      setTimeout(() => {
-        const bannerz= data[Math.floor(Math.random() * data.length)]
-        setBanner(bannerz)
-       },30000)
-    )
-   }
+  const [time, setTime] = useState(false);
+  main()
+     function main(params) {
+      if(time){
+        return
+      }else(
+        setTimeout(() => {
+          const bannerz= data[Math.floor(Math.random() * data.length)]
+          setBanner(bannerz)
+         },5000)
+      )
+     }
+  // useEffect(() => {
+  //   if(time){
+  //     return
+  //   }
+  //   return () => {
+  //     clearInterval();
+  //   };
+  // }, []);
+
   return (
-    <div style={{ boxSizing: "border-box" }}>
-      <Modal
-      
-         style={{background:"black"}}
-        size="lg"
-        show={lgShow}
-        onHide={() => setLgShow(false)}
-        aria-labelledby="example-modal-sizes-title-lg"
-      >
-        
-        <Modal.Body style={{background:"black"}}>
-        <div
-            style={{
-              height: "500px",
-              paddingRight: "5px",
-              position: "relative",
-            }}
-          >
-            <button
-              className={scss.butX}
-              onClick={() => {
-                setLgShow(false);
-                setTime(false)
-              }}
-            >
-              <CloseCircleOutlined /> 
-            </button>
-            <iframe
-              style={{ position: "relative" }}
-              allow="autoplay"
-              src={`${Banner.trailer}?&autoplay=1`}
-              width={"100%"}
-              height={"100%"}
-              frameborder="0"
-            ></iframe>
-            
-          </div>
-        </Modal.Body>
-      </Modal>
-      <div className={scss.bg}>
-        <div className={scss.img}>
-          <div>
-            <img src={Banner.bg} className={scss.image_XUUr} alt="" />
-          </div>
-        </div>
-        <div className={scss.text}>
-          <div>
-            <h1>{Banner.name}</h1>
-            <p>{Banner.mota}</p>
-            <button onClick={()=>{
-              setTime(true)
-              setBanner(Banner)
-              setLgShow(true)
-              
-            }} className="btn btn-dark rounded-0">
-             
-               <div className="d-flex align-items-center">
-               <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="15"
-                  height="15"
-                  viewBox="0 0 24 24"
-                  fill="#fff"
-                >
-                  <path d="M3 22v-20l18 10-18 10z"></path>
-                </svg>
-              
-              <span className="ms-1">Watch Trailer</span>
-               </div>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    // <div>
-    //   <Carousel width={"100%"}>
-    //     {banners?.map((banner) => {
-    //       return (
-    //         <Carousel.Item key={banner.maBanner} width={"100%"}>
-    //           <img
-    //             width={"100%"}
-    //             className="d-block rounded-3 "
-    //             key={banner.maBanner}
-    //             src={banner.hinhAnh}
-    //             alt="First slide"
-    //             height={"400px"}
-    //           />
-    //         </Carousel.Item>
-    //       );
-    //     })}
-    //   </Carousel>
+    // <div style={{ boxSizing: "border-box" }}>
+    //   <Modal
+    //     style={{ background: "black" }}
+    //     size="lg"
+    //     show={lgShow}
+    //     onHide={() => setLgShow(false)}
+    //     aria-labelledby="example-modal-sizes-title-lg"
+    //   >
+    //     <Modal.Body style={{ background: "black" }}>
+    //       <div
+    //         style={{
+    //           height: "500px",
+    //           paddingRight: "5px",
+    //           position: "relative",
+    //         }}
+    //       >
+    //         <button
+    //           className={scss.butX}
+    //           onClick={() => {
+    //             setLgShow(false);
+    //             setTime(false);
+    //           }}
+    //         >
+    //           <CloseCircleOutlined />
+    //         </button>
+    //         <iframe
+    //           style={{ position: "relative" }}
+    //           allow="autoplay"
+    //           src={`${Banner.trailer}?&autoplay=1`}
+    //           width={"100%"}
+    //           height={"100%"}
+    //           frameborder="0"
+    //         ></iframe>
+    //       </div>
+    //     </Modal.Body>
+    //   </Modal>
+    //   <div className={scss.bg}>
+    //     <div className={scss.img}>
+    //       <div>
+    //         <img src={Banner.bg} className={scss.image_XUUr} alt="" />
+    //       </div>
+    //     </div>
+    //     <div className={scss.text}>
+    //       <div>
+    //         <h1>{Banner.name}</h1>
+    //         <p className="mb-5">{Banner.mota}</p>
+    //         <button
+    //           onClick={() => {
+    //             setTime(true);
+    //             setBanner(Banner);
+    //             setLgShow(true);
+    //           }}
+    //           className="btn btn-dark rounded-0"
+    //         >
+    //           <div className="d-flex align-items-center">
+    //             <svg
+    //               xmlns="http://www.w3.org/2000/svg"
+    //               width="15"
+    //               height="15"
+    //               viewBox="0 0 24 24"
+    //               fill="#fff"
+    //             >
+    //               <path d="M3 22v-20l18 10-18 10z"></path>
+    //             </svg>
+
+    //             <span className="ms-1  ">Watch Trailer</span>
+    //           </div>
+    //         </button>
+    //       </div>
+    //     </div>
+    //   </div>
     // </div>
+    <div>
+      
+    </div>
+ 
   );
 };
 

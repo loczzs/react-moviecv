@@ -26,7 +26,7 @@ const News = () => {
         <div className="row">
           {news?.map((newz,index) => {
             return (
-              <div key={index} className="col-3 mb-3">
+              <div key={index} className={`${scss.recol} col-3 mb-3`}>
                 <div className={`${scss.news} rounded-3 `}>
                   <div>
                     <img

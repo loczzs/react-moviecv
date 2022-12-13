@@ -19,7 +19,7 @@ const Movie = () => {
  },[])
 
   return (
-    <div >
+    <div className="bg-white" >
       <Overview  movieId={movieId} />
       <Showtimes movieId={movieId} />
     </div>

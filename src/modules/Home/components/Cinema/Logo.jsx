@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { showAdress } from "modules/Home/slices/cinemaSlice";
 // import cinemaSlice
+import { Button, Tooltip } from "antd";
 
 const Logo = () => {
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ const Logo = () => {
           {
             /* console.log(cart.maHeThongRap) */
           }
-          border = "1px solid red";
+          border = "1px solid #eb2f96";
         }
 
         return (
@@ -55,9 +56,12 @@ const Logo = () => {
                 alt=""
               />
             </div>
+            <Tooltip placement="leftTop" title={cinema.tenHeThongRap}>
             <p style={{ fontSize: "0.75rem" }}>
               {cinema.tenHeThongRap.slice(0, 6) + ".."}
             </p>
+            </Tooltip>
+            
           </div>
         );
       })}

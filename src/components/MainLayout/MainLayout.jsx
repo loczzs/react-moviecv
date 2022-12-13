@@ -9,7 +9,7 @@ import Footer from "components/Footer/Footer";
 const MainLayout = () => {
   return (
     <Layout>
-      <Layout.Header className="bg-white " style={{borderBottom:"1px solid grey"}} >
+      <Layout.Header className="bg-white " style={{borderBottom:"1px solid grey",height:"100%"}} >
         <Header />
       </Layout.Header>
       <Layout.Content>

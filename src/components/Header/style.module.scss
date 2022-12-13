@@ -1,50 +1,30 @@
-.dflex {
+.header{
   display: flex;
+  // background-color: red;
   justify-content: space-between;
-}
-.dflex a {
-  margin-right: 15px;
-}
-.headerend {
-  display: flex;
- 
-    div i {
-      color: white;
-    }
-    div span {
-      color: white;
-      margin-left: 10px;
-    }
-  
-}
-.headlogin{
-    margin-right: 15px;
-}
-.dnOne{
-  display: none;
-}
-.stylea{
-  text-decoration: none;
-  margin-right: 15px;
-  color: white;
-}
-.stylea1{
-  font-size: 20px;
-  text-decoration: none;
-  margin-right: 15px;
-  color: black;
-  display: block;
-  margin-bottom: 20px;
-}
-.but{
-  width: 100px;
-  box-shadow: inset 0 0 0 0 #d82d8b;
-  transition: all 0,7s;
+  align-items: center;
+  padding-bottom: 1px;
+  .header1{
+    @extend .header;
+      img{
+        width: 60px;
+        height: 60px;
+        margin-right: 20px;
 
+      }
+      a{
+        margin-right: 20px;
+        text-decoration: none;
+        color: black;
+        font-weight: 600;
+      }
+    
+  }
 }
-.but:hover{
-  // width: 100%;
-  box-shadow: inset 100px 0 0 0 #d82d8b;
-  background: #d82d8b;
+@media screen and (max-width: 600px){
+  .navi{
+    display: none;
+  }
 }
+
 

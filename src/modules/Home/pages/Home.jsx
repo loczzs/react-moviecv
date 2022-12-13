@@ -8,7 +8,7 @@ import News from "../components/News/News";
 const Home = () => {
   return (
     <div className="bg-white">
-      <Banner />
+      {/* <Banner /> */}
 
      
 

@@ -10,7 +10,7 @@ import { getLayGhe } from "../slices/LayDanhSachGhe";
 const SeatDetail = ({ ThongTinPhim }) => {
   console.log(ThongTinPhim);
   const { DanhSachGheDangDat } = useSelector((state) => state.giohang);
-console.log(DanhSachGheDangDat);
+
   const { ticketId } = useParams();
   const user = JSON.parse(localStorage.getItem("user"));
 
@@ -34,7 +34,7 @@ console.log(DanhSachGheDangDat);
 
   return (
  
-    <div id="z" className={`${scss.col2}`}>
+    <div id="z" className={`${scss.col2} w-100`}>
       <div className="container  ">
         <h2 className="mb-3"> Danh Sách ghế đã chọn</h2>
         <div className="row">
@@ -81,11 +81,11 @@ console.log(DanhSachGheDangDat);
                   background = " #954351"
                 }
                 return (
-                  <button key={index} style={{background:background}} className="btn me-1">
+                  <button key={index} style={{background:background,marginBottom:"5px"}} className="btn me-1">
                     {gheDD.tenGhe}
                   </button>
                 );
-              })}
+              })?.reverse()}
             </div>
             <hr />
             <div className={scss.tab}>

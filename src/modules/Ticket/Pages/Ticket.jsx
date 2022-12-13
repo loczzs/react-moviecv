@@ -24,11 +24,13 @@ const Ticket = () => {
   }, []);
 
   return (
-    <div className={scss.container}>
-      <h1 className={scss.fsh1}>ĐẶT VÉ XEM PHIM</h1>
+    <div style={{background:"white"}} className="  pb-3">
+     
       <div className={scss.row}>
-        <img src="" alt="" />
+        {/* <img src="" alt="" /> */}
+        
         <div
+        
         className="col-sm-6"
           style={{
             width: "100%",
