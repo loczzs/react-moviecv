@@ -40,6 +40,7 @@ function App() {
     >
     
       <Routes>
+      
         <Route path="/" element={<AdminRoute />}>
           <Route path="admin/">
             <Route index path="movies" element={<MovieList />} />

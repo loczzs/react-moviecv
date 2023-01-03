@@ -5,7 +5,8 @@ import { useForm, Controller } from "react-hook-form";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { login } from "../slices/authSlice";
-import scss from "./styles.module.scss";
+import scss from "./style.module.scss";
+import { useEffect } from "react";
 
 
 const Login = () => {
@@ -70,6 +71,14 @@ const Login = () => {
     navigate("/register")
   }
   
+  useEffect(() => {
+  
+    document.body.style.background =
+      "linear-gradient(120deg, #2980b9, #8e44ad)";
+    return () => {
+      document.body.style.background = null;
+    };
+  }, []);
 
   // Đã đăng nhập
   if (user) {
@@ -77,14 +86,14 @@ const Login = () => {
   }
 
   return (
-    <div className={scss.center}>
-      <h1 className={scss.h1}>Login</h1>
-      <div className={scss.styless}>
+  <div className={scss.bg}>
+      <div className={scss.contain2} >
+      <h1 className="mb-3 ">Login</h1>
+      <div  >
         <Form
-          className={scss.form}
+          
           onFinish={handleSubmit(onSubmit)}
-          labelCol={{ span: 5 }}
-          wrapperCol={{ span: 8 }}
+          
         >
           <Controller
             name="taiKhoan"
@@ -97,7 +106,7 @@ const Login = () => {
             }}
             render={({ field, fieldState: { error } }) => (
               <Form.Item
-                className={scss.item}
+                
                 label="Tài khoản"
                 validateStatus={error ? "error" : ""}
                 help={error?.message}
@@ -108,7 +117,7 @@ const Login = () => {
           />
 
           <Controller
-            className={scss.item}
+            
             name="matKhau"
             control={control}
             rules={{
@@ -119,7 +128,7 @@ const Login = () => {
             }}
             render={({ field, fieldState: { error } }) => (
               <Form.Item
-                className={scss.item}
+                  style={{marginBottom:"35px"}}
                 label="Mật khẩu"
                 validateStatus={error ? "error" : ""}
                 help={error?.message}
@@ -129,12 +138,13 @@ const Login = () => {
             )}
           />
 
-          <Form.Item wrapperCol={{ offset: 0 }}>
+          <Form.Item style={{textAlign:"center",marginTop:"10px"}} wrapperCol={{ offset: 0 }}>
             <Button
               type="primary"
               htmlType="submit"
               disabled={isLoading}
               loading={isLoading}
+              className="me-3 "
             >
               Đăng Nhập
             </Button>
@@ -143,6 +153,7 @@ const Login = () => {
         </Form>
       </div>
     </div>
+  </div>
   );
 };
 

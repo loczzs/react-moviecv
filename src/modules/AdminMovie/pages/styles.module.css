@@ -1,0 +1,63 @@
+.center, .center2 {
+  width: 50%;
+  padding: 50px 0;
+  margin: auto;
+}
+.center h1, .center2 h1 {
+  text-align: center;
+  font-weight: 700;
+}
+.center form, .center2 form {
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+.center form .divma, .center2 form .divma {
+  margin-top: 10px;
+}
+.center form .divma p, .center2 form .divma p {
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+.center form .divma input, .center2 form .divma input {
+  padding: 2px 10px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+.center form .divma select, .center2 form .divma select {
+  padding: 2px 10px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+.center form .divma span, .center2 form .divma span {
+  color: red;
+}
+
+.center2 {
+  width: 100% !important;
+  padding: 0px 0px;
+  margin: auto;
+}
+.center2 form {
+  padding: 0px 10px;
+}
+
+@media screen and (max-width: 900px) {
+  .center, .center2 {
+    width: 70%;
+  }
+  .center form, .center2 form {
+    padding: 0 20px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .center, .center2 {
+    width: 95%;
+  }
+  .center form, .center2 form {
+    padding: 0 10px;
+  }
+}/*# sourceMappingURL=styles.module.css.map */

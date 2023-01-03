@@ -11,7 +11,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    box-shadow: 1px 1px 10px #e5e5e5;
+    box-shadow: 1px 1px 10px gray;
     // padding-bottom: 50px;
 }
 
@@ -21,7 +21,7 @@
     height: 100px;
 }
  .news:hover{
-    box-shadow: 3px 3px 20px #e5e5e5;
+    box-shadow: 3px 3px 20px gray;
     .anitext p{
     color: rgb(216, 45, 139);
 }}

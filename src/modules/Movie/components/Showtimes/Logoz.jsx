@@ -8,7 +8,7 @@ import { getThongTinPhim } from "modules/Movie/slices/ThongTinPhimSlice";
 import { showAdress } from "modules/Movie/slices/ThongTinPhimSlice";
 const Logoz = ({ movieId }) => {
   const { ThongTinPhims, adresses,cart } = useSelector((state) => state.thongtinphim);
-  console.log( adresses);
+
   const dispatch = useDispatch();
   // useEffect(() => {
   //   dispatch(getThongTinPhim(movieId));

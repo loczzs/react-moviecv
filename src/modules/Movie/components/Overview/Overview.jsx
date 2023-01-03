@@ -20,7 +20,7 @@ const Overview = ({ movieId }) => {
     isLoading,
     error,
   } = useRequest(() => movieAPI.getMovieDetails(movieId));
-  console.log(movie);
+ 
 
   const navigate = useNavigate();
   const handleTicket = (ThongTinPhims) => {
@@ -52,6 +52,7 @@ const Overview = ({ movieId }) => {
             }}
           >
             <button
+            style={{top : width < 620 ? "10%" : "8%",right : width < 620 ? "5%" : "-50px" }}
               className={scss.butX}
               onClick={() => {
                 setLgShow(false);

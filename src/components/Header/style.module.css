@@ -1,0 +1,23 @@
+.header, .header .header1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1px;
+}
+.header .header1 img {
+  width: 60px;
+  height: 60px;
+  margin-right: 20px;
+}
+.header .header1 a {
+  margin-right: 20px;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 600px) {
+  .navi {
+    display: none;
+  }
+}/*# sourceMappingURL=style.module.css.map */

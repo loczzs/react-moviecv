@@ -1,0 +1,158 @@
+.bg {
+  position: relative;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.bg .fade {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  transition: visibility 1s;
+  align-items: center;
+  overflow: hidden;
+}
+.bg .fade .butAni {
+  padding: 10px 25px;
+  border: 2px solid #00eeff;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background: transparent;
+  color: #fff;
+  -webkit-box-reflect: below 0px linear-gradient transparent, rgba(0, 0, 0, 0.1333333333);
+  transition: margin-top 1000ms;
+  margin-top: 500px;
+  position: relative;
+}
+.bg .fade .butAni span {
+  position: relative;
+  z-index: 100;
+}
+
+.butAni:hover {
+  color: #000;
+  transition-delay: 1.5s;
+  box-shadow: 0 0 10px #00eeff, 0 0 20px #00eeff, 0 0 40px #00eeff, 0 0 160px #00eeff;
+}
+
+.bg:hover .fade {
+  visibility: visible;
+}
+
+.bg:hover .fade .butAni {
+  margin-top: 0px;
+}
+
+.butAni:nth-child(2) {
+  filter: hue-rotate(80deg);
+}
+
+.butAni::before {
+  content: " ";
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 2px;
+  background-color: #00eeff;
+  box-shadow: 5px -8px 0 #00eeff, 5px 8px 0 #00eeff;
+  transition: width 0.5s, left 0.5s, height 0.5s, box-shadow 0.5s;
+  transition-delay: 1s, 0.5s, 0s, 0s;
+}
+
+.butAni:hover::before {
+  width: 60%;
+  height: 105%;
+  left: -2px;
+  box-shadow: 5px 0 0 #00eeff, 5px 0 0 #00eeff;
+  transition-delay: 0s, 0s, 0.5s, 1s;
+}
+
+.butAni::after {
+  content: " ";
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 2px;
+  background-color: #00eeff;
+  box-shadow: -5px -8px 0 #00eeff, -5px 8px 0 #00eeff;
+  transition: width 0.5s, right 0.5s, height 0.5s, box-shadow 0.5s;
+  transition-delay: 1s, 0.5s, 0s, 0s;
+}
+
+.butAni:hover::after {
+  width: 60%;
+  height: 105%;
+  right: -2px;
+  box-shadow: -5px 0 0 #00eeff, -5px 0 0 #00eeff;
+  transition-delay: 0s, 0s, 0.5s, 1s;
+}
+
+.img {
+  background-image: url(../../../../../public/img/momo1.jpg);
+  background-size: cover;
+  padding: 0px 25px;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  background-repeat: no-repeat;
+}
+
+.butX {
+  background-color: transparent !important;
+  color: white;
+  border: none;
+  font-size: 30px;
+  position: absolute;
+  z-index: 1000;
+  top: 8%;
+  right: -50px;
+  transition: all 0.5s;
+}
+
+.butX:hover {
+  transform: scale(1.25, 1.25);
+}
+
+.fsh1 {
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+  color: #0e3742;
+  text-transform: uppercase;
+  width: 100%;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(0, 0, 0, 0.2666666667));
+  line-height: 0.7em;
+  outline: none;
+  -webkit-animation: animate 5s linear infinite;
+          animation: animate 5s linear infinite;
+}
+
+@-webkit-keyframes animate {
+  0%, 18%, 20%, 50.1%, 60%, 65.1%, 80%, 90.1%, 92% {
+    color: #0e3742;
+    text-shadow: none;
+  }
+  18.1%, 20.1%, 30%, 50%, 60.1%, 65%, 80.1%, 90%, 92.1%, 100% {
+    color: #fff;
+    text-shadow: 0 0 10px rgb(216, 45, 139), 0 0 20px rgb(216, 45, 139), 0 0 40px rgb(216, 45, 139), 0 0 80px rgb(216, 45, 139), 0 0 160px rgb(216, 45, 139);
+  }
+}
+
+@keyframes animate {
+  0%, 18%, 20%, 50.1%, 60%, 65.1%, 80%, 90.1%, 92% {
+    color: #0e3742;
+    text-shadow: none;
+  }
+  18.1%, 20.1%, 30%, 50%, 60.1%, 65%, 80.1%, 90%, 92.1%, 100% {
+    color: #fff;
+    text-shadow: 0 0 10px rgb(216, 45, 139), 0 0 20px rgb(216, 45, 139), 0 0 40px rgb(216, 45, 139), 0 0 80px rgb(216, 45, 139), 0 0 160px rgb(216, 45, 139);
+  }
+}/*# sourceMappingURL=style.module.css.map */

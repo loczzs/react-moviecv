@@ -9,7 +9,7 @@ import { getThongTinPhim } from "modules/Movie/slices/ThongTinPhimSlice";
 const Showtimez = ({ movieId }) => {
   const dispatch = useDispatch();
   const { cinema, logoz, cart2 } = useSelector((state) => state.thongtinphim);
-  console.log(cinema);
+
   const navigate = useNavigate();
   useEffect(() => {
     dispatch(getThongTinPhim(movieId));

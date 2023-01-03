@@ -44,5 +44,46 @@
       }
     }
       
-  }}
+  }
+}
+  
+  
+  
+  
+  
+  
+.center2{
+    @extend .center;
+    
+    width:100% !important;
+    padding: 0px 0px;
+    margin: auto;
+    form{
+      padding: 0px 10px
+    }
+  }
+    
+  
+
+  @media screen and (max-width:900px) {
+    .center{
+      width: 70%;
+      form{
+        padding: 0 20px;
+      }
+    }
+    
+  }
+
+
+
+  @media screen and (max-width:600px) {
+    .center{
+      width: 95%;
+      form{
+        padding: 0 10px;
+      }
+    }
+    
+  }
   

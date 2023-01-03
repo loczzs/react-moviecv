@@ -1,0 +1,59 @@
+.bg {
+  background-color: white;
+  padding: 56px 150px 56px 150px;
+}
+
+.news {
+  border: 0px solid #e5e5e5;
+  background-color: white;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  box-shadow: 1px 1px 10px gray;
+}
+
+.anitext {
+  font-weight: 600;
+  padding: 10px;
+  height: 100px;
+}
+
+.news:hover {
+  box-shadow: 3px 3px 20px gray;
+}
+.news:hover .anitext p {
+  color: rgb(216, 45, 139);
+}
+
+.Newp {
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+h2 {
+  text-align: center;
+  color: rgb(216, 45, 139);
+}
+
+@media screen and (max-width: 1200px) {
+  .bg {
+    padding: 20px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .bg {
+    padding: 10px;
+  }
+  .recol {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 375px) {
+  .bg {
+    padding: 10px;
+  }
+  .recol {
+    width: 100%;
+  }
+}/*# sourceMappingURL=style.module.css.map */

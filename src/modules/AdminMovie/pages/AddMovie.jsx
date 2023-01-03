@@ -198,31 +198,12 @@ const AddMovie = () => {
             />
           )}
 
-          {/* <div>
-            <p>
-              <label htmlFor="">đang chiếu</label>
-            </p>
-            <select name="" id="" {...register("dangChieu")}>
-            
-              <option value="">chọn trạng thái đang chiếu</option>
-              <option value={true}>true</option>
-              <option value={false}>false</option>
-            </select>
-          </div>
-          <div>
-            <p>
-              <label htmlFor="">sắp chiếu</label>
-            </p>
-            <select name="" id="" {...register("sapChieu")}>
-              <option value="">chọn trạng thái sắp chiếu</option>
-              <option value={true}>true</option>
-              <option value={false}>false</option>
-            </select>
-          </div> */}
+ 
           <div className="row mt-3">
-            <div className="col-sm-6 d-flex align-items-center ">
+            <div className="col-sm-6 d-flex align-items-center  ">
               <p style={{fontWeight:600}} className="mb-0 me-3 mb-1 ">Đang Chiếu : </p>
               <Controller
+              
                 control={control}
                 name="dangChieu"
                 render={({ field: { value, onChange } }) => (

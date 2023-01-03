@@ -47,7 +47,7 @@ const ThongTinPhimSlice = createSlice({
       state.isLoading = true;
     });
     builder.addCase(getThongTinPhim.fulfilled, (state, { payload }) => {
-      console.log(payload);
+      
       state.ThongTinPhims = payload;
       state.isLoading = false;
       state.adresses = payload[0]?.cumRapChieu;

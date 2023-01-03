@@ -1,0 +1,95 @@
+* {
+  box-sizing: border-box;
+}
+
+.bg {
+  color: #999;
+  background-color: #000;
+  position: relative;
+  display: block;
+  height: 0;
+  padding-bottom: 40%;
+}
+.bg .img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 71.1%;
+  height: 100%;
+}
+.bg .img div {
+  display: inline;
+  width: 100%;
+}
+.bg .img div .image_XUUr {
+  height: 100%;
+  opacity: 1;
+}
+.bg .text {
+  width: 43%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 5rem 4rem;
+}
+.bg .text div h1 {
+  font-size: 2.8rem;
+  line-height: 1.1;
+  color: #fff;
+  letter-spacing: 0.4px;
+  display: block;
+}
+.bg .text div p {
+  margin-top: 2.5rem;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.img:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  content: "";
+  background-image: linear-gradient(90deg, #000 0, transparent 50%, transparent);
+}
+
+.butX {
+  background-color: transparent !important;
+  color: white;
+  border: none;
+  font-size: 30px;
+  position: absolute;
+  z-index: 1000;
+  transition: all 0.5s;
+}
+
+.butX:hover {
+  transform: scale(1.25, 1.25);
+}
+
+.flex {
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.bannerrespon {
+  padding: 10px;
+  width: 100%;
+  word-break: break-work;
+}
+.bannerrespon h1 {
+  color: white;
+}
+.bannerrespon p {
+  color: white;
+}/*# sourceMappingURL=style.module.css.map */

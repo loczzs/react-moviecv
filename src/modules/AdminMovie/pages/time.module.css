@@ -1,0 +1,47 @@
+.center {
+  width: 50%;
+  padding: 50px 0;
+  margin: auto;
+}
+.center h1 {
+  text-align: center;
+  font-weight: 700;
+}
+.center .formTime {
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+.center .formTime .itemTime {
+  margin-top: 10px;
+}
+.center .formTime .itemTime .pTime {
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+.center .formTime .itemTime .Input {
+  padding: 2px 10px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+.center .formTime .itemTime .spanInput {
+  color: red;
+}
+
+@media screen and (max-width: 900px) {
+  .center {
+    width: 70%;
+  }
+  .center form {
+    padding: 0 20px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .center {
+    width: 95%;
+  }
+  .center form {
+    padding: 0 20px;
+  }
+}/*# sourceMappingURL=time.module.css.map */

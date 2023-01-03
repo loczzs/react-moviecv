@@ -37,7 +37,7 @@ export const updateMovies = createAsyncThunk(
     try {
       const datazzs= await movieAPI.UpdateMovie(title);
       // console.log(datazzs)
-      // dispatch(getMovie())
+      dispatch(getMovie())
     } catch (error) {
       // console.log(error)
       return rejectWithValue(error);

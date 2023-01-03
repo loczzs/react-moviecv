@@ -171,7 +171,7 @@ const AddUser = () => {
             {errors.matKhau && <span>{errors.matKhau.message}</span>}
           </div>
 
-          <div>
+          <div className={scss.divma}>
             <p>
               <label htmlFor="ma">Mã Loại Người Dùng</label>
             </p>

@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { notification } from "antd";
 import scss from "./style.module.scss";
-
+import { useEffect } from "react";
 // data: taiKhoan, matKhau, email, hoTen, soDt
 
 const Register = () => {
@@ -47,13 +47,23 @@ const Register = () => {
   const onError = (error) => {
     console.log(error);
   };
+  useEffect(() => {
+  
+    document.body.style.background =
+      "linear-gradient(120deg, #2980b9, #8e44ad)";
+    return () => {
+      document.body.style.background = null;
+    };
+  }, []);
 
   return (
-    <div className={scss.center}>
-      <h1 className={scss.h1}>Đăng ký</h1>
+   <div className={scss.bg}>
+     <div className={scss.contain} >
+      <h1 className="mb-3 text-center" >Đăng ký</h1>
       <form onSubmit={handleSubmit(onSubmit, onError)} className={scss.form}>
-        <div className={scss.field}>
+        <div className={scss.inputbox} >
           <input
+            required="required"
             type="text"
             {...register("taiKhoan", {
               required: {
@@ -70,13 +80,14 @@ const Register = () => {
               },
             })}
           />
-          <span></span>
-          <label>Username</label>
-          {errors.taiKhoan && <p>{errors.taiKhoan.message}</p>}
+          <span>tài khoản</span>
+        
+          {errors.taiKhoan && <p className={scss.pauth}>{errors.taiKhoan.message}</p>}
         </div>
 
-        <div className={scss.field}>
+        <div className={scss.inputbox} >
           <input
+          required="required"
             type="text"
             {...register("matKhau", {
               required: {value: true, message:"mật khẩu không được để trống"},
@@ -86,13 +97,14 @@ const Register = () => {
               },
             })}
           />
-          <span></span>
-          <label >Password</label>
-          {errors.matKhau && <p>{errors.matKhau.message}</p>}
+          <span >mật khẩu</span>
+         
+          {errors.matKhau && <p className={scss.pauth}>{errors.matKhau.message}</p>}
         </div>
 
-        <div className={scss.field}>
+        <div className={scss.inputbox} >
           <input
+          required="required"
             type="text"
             {...register("email", {
               required: { value: true, message: "Email không được để trống" },
@@ -103,38 +115,41 @@ const Register = () => {
               },
             })}
           />
-          <span></span>
-          <label>Email</label>
-          {errors.email && <p>{errors.email.message}</p>}
+          <span>email</span>
+         
+          {errors.email && <p className={scss.pauth}>{errors.email.message}</p>}
         </div>
 
-        <div className={scss.field}>
+        <div className={scss.inputbox} >
           <input
+          required="required"
             type="text"
             {...register("hoTen", {
               required: {value : true, message:"họ tên không được để trống"},
             })}
           />
-          <span></span>
-          <label>Fullname</label>
-          {errors.hoTen && <p>{errors.hoTen.message}</p>}
+          <span>họ và tên</span>
+         
+          {errors.hoTen && <p className={scss.pauth}>{errors.hoTen.message}</p>}
         </div>
 
-        <div className={scss.field}>
+        <div  className={scss.inputbox} >
           <input
-            type="text"
+          required="required"
+            type="number"
             {...register("soDt", {
               required: {value : true, message:"sđt không được để trống"},
             })}
           />
-          <span></span>
-          <label>PhoneNumber</label>
-          {errors.soDt && <p>{errors.soDt.message}</p>}
+          <span>số điện thoại</span>
+          
+          {errors.soDt && <p className={scss.pauth}>{errors.soDt.message}</p>}
         </div>
 
-        <button>Đăng Ký</button>
+        <button className="btn btn-primary">Đăng Ký</button>
       </form>
     </div>
+   </div>
   );
 };
 

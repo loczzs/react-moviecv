@@ -1,0 +1,141 @@
+.scrollcss {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 5px;
+  display: none;
+  visibility: hidden;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 5px;
+}
+
+.scrollcss:hover::-webkit-scrollbar {
+  display: block;
+}
+
+.bodercss {
+  border: none;
+}
+
+.iconic {
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
+  line-height: 125px !important;
+  font-size: 50px;
+  text-align: center;
+  border: 8px solid orange;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
+.anih1 {
+  text-align: center;
+  color: rgb(216, 45, 139);
+  font-family: sans-serif;
+}
+
+.butsi {
+  background: transparent;
+  font-size: 12px;
+  border-radius: 10px;
+  padding: 10px 4px;
+  border: #38bdf8 1px solid;
+  width: 100%;
+}
+
+.butsi:hover {
+  opacity: 0.7;
+}
+
+.con {
+  padding: 40px 16px;
+  background: white;
+  margin: auto;
+}
+
+.fs-6 {
+  word-break: break-word;
+}
+
+.containcard {
+  padding: 50px;
+  border: 1px solid black;
+}
+
+.cardz {
+  display: flex;
+  height: 550px;
+  border: 1px solid black;
+  width: 100%;
+}
+
+.cardz1 {
+  height: 100%;
+  border-right: 1px solid gray;
+}
+
+.addresscard {
+  display: flex;
+  padding: 5px;
+  align-items: center;
+  border: 1px solid black;
+  width: 100%;
+  margin-bottom: 10px;
+  position: relative;
+  cursor: pointer;
+  justify-content: space-between;
+}
+
+.cardz2 {
+  display: block;
+}
+
+.showcititle {
+  align-items: center;
+  display: flex;
+  border: 1px solid black;
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 1100px) {
+  .con {
+    padding: 20px 2px 20px 2px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .con {
+    padding: 20px 2px 20px 2px;
+  }
+  .containcard {
+    padding: 10px !important;
+  }
+  .cardz {
+    display: block;
+  }
+  .cardz1 {
+    width: 100%;
+    border: none;
+    padding-right: 0px !important;
+  }
+  .addresscard {
+    justify-content: start;
+  }
+  .addresscard div:nth-child(1) {
+    margin-right: 5px;
+  }
+  .addresscard div:nth-child(3) {
+    display: none !important;
+  }
+  .cardz2 {
+    display: none;
+  }
+}/*# sourceMappingURL=cinema.css.map */

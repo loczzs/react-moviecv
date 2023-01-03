@@ -21,7 +21,7 @@ const Times = () => {
   const navigate = useNavigate();
   const { movieId } = useParams();
   const { addresses } = useSelector((state) => state.cinema);
-  console.log(addresses);
+  
   const {
     register,
     handleSubmit,

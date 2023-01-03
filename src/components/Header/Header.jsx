@@ -35,13 +35,7 @@ const Header = () => {
   const onClose = () => {
     setOpen(false);
   };
-  // if (width < 1200) {
-  //   display = "none";
-  // }
-  // let display2 = "none";
-  // if (width < 1200) {
-  //   display2 = "block";
-  // }
+  
  
   const dispatch = useDispatch();
   const handleLogout = () => {
@@ -107,7 +101,7 @@ const Header = () => {
               <Dropdown.Button
                 menu={menuProps}
                 placement="bottom"
-                icon={<CaretDownOutlined />}
+                icon={<span className="d-flex align-items-center justify-content-center mt-1"><CaretDownOutlined/></span>}
               >
                 {user?.taiKhoan}
               </Dropdown.Button>

@@ -1,0 +1,186 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.img {
+  background: url(../../../../../public/img/momo2.jpg);
+  padding: 0px 25px;
+  margin: auto;
+  width: 100%;
+  background-size: contain;
+  padding-top: 70px;
+}
+
+.scale {
+  overflow: hidden;
+  transition: all 2s;
+  position: relative;
+}
+
+.butAni:nth-child(2) {
+  filter: hue-rotate(80deg);
+}
+
+.butAni::before {
+  content: " ";
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 2px;
+  background-color: #0f0;
+  box-shadow: 5px -8px 0 #0f0, 5px 8px 0 #0f0;
+  transition: width 0.5s, left 0.5s, height 0.5s, box-shadow 0.5s;
+  transition-delay: 1s, 0.5s, 0s, 0s;
+}
+
+.butAni:hover::before {
+  width: 60%;
+  height: 102%;
+  left: -2px;
+  box-shadow: 5px 0 0 #0f0, 5px 0 0 #0f0;
+  transition-delay: 0s, 0s, 0.5s, 1s;
+}
+
+.butAni::after {
+  content: " ";
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 2px;
+  background-color: #0f0;
+  box-shadow: -5px -8px 0 #0f0, -5px 8px 0 #0f0;
+  transition: width 0.5s, right 0.5s, height 0.5s, box-shadow 0.5s;
+  transition-delay: 1s, 0.5s, 0s, 0s;
+}
+
+.butAni:hover::after {
+  width: 60%;
+  height: 102%;
+  right: -2px;
+  box-shadow: -5px 0 0 #0f0, -5px 0 0 #0f0;
+  transition-delay: 0s, 0s, 0.5s, 1s;
+}
+
+.scale img {
+  transition: all 2s;
+}
+
+.scale:hover img {
+  transform: rotateY(180deg);
+}
+
+.fsh1 {
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+  color: #0e3742;
+  text-transform: uppercase;
+  width: 100%;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(0, 0, 0, 0.2666666667));
+  line-height: 0.7em;
+  outline: none;
+  -webkit-animation: animate 5s linear infinite;
+          animation: animate 5s linear infinite;
+}
+
+.fade {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  transition: all 5s;
+  overflow: hidden;
+  transition: all 2000ms;
+}
+.fade .butAni {
+  padding: 10px 25px;
+  border: 2px solid #0f0;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background: transparent;
+  color: #fff;
+  -webkit-box-reflect: below 0px linear-gradient transparent, rgba(0, 0, 0, 0.1333333333);
+  transition: all 2000ms;
+  transition: 0.5;
+  position: relative;
+}
+.fade .butAni span {
+  position: relative;
+  z-index: 100;
+}
+
+@-webkit-keyframes animate {
+  0%, 18%, 20%, 50.1%, 60%, 65.1%, 80%, 90.1%, 92% {
+    color: #0e3742;
+    text-shadow: none;
+  }
+  18.1%, 20.1%, 30%, 50%, 60.1%, 65%, 80.1%, 90%, 92.1%, 100% {
+    color: #fff;
+    text-shadow: 0 0 10px rgb(216, 45, 139), 0 0 20px rgb(216, 45, 139), 0 0 40px rgb(216, 45, 139), 0 0 80px rgb(216, 45, 139), 0 0 160px rgb(216, 45, 139);
+  }
+}
+
+@keyframes animate {
+  0%, 18%, 20%, 50.1%, 60%, 65.1%, 80%, 90.1%, 92% {
+    color: #0e3742;
+    text-shadow: none;
+  }
+  18.1%, 20.1%, 30%, 50%, 60.1%, 65%, 80.1%, 90%, 92.1%, 100% {
+    color: #fff;
+    text-shadow: 0 0 10px rgb(216, 45, 139), 0 0 20px rgb(216, 45, 139), 0 0 40px rgb(216, 45, 139), 0 0 80px rgb(216, 45, 139), 0 0 160px rgb(216, 45, 139);
+  }
+}
+.aniHot {
+  background: red;
+  border: none;
+  text-align: left;
+  padding: 3px;
+  margin-bottom: 10px;
+}
+.aniHot p {
+  color: yellow;
+  font-size: 0.65rem;
+  line-height: 1rem;
+  margin-bottom: 0px;
+  -webkit-animation: animatez 1s linear infinite;
+          animation: animatez 1s linear infinite;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+@-webkit-keyframes animatez {
+  0%, 18%, 20%, 50.1%, 60%, 65.1%, 80%, 90.1%, 92% {
+    color: yellow;
+    text-shadow: none;
+  }
+  18.1%, 20.1%, 30%, 50%, 60.1%, 65%, 80.1%, 90%, 92.1%, 100% {
+    color: #fff;
+    text-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 40px yellow, 0 0 80px yellow, 0 0 160px yellow;
+  }
+}
+
+@keyframes animatez {
+  0%, 18%, 20%, 50.1%, 60%, 65.1%, 80%, 90.1%, 92% {
+    color: yellow;
+    text-shadow: none;
+  }
+  18.1%, 20.1%, 30%, 50%, 60.1%, 65%, 80.1%, 90%, 92.1%, 100% {
+    color: #fff;
+    text-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 40px yellow, 0 0 80px yellow, 0 0 160px yellow;
+  }
+}
+@media screen and (max-width: 992px) {
+  .img {
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}/*# sourceMappingURL=style.module.css.map */

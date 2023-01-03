@@ -13,7 +13,7 @@ const useWindowSize = () => {
         width: window.innerWidth,
         height: window.innerHeight,
       });
-      console.log(size.width,size.height)
+     
     };
 
     // Lắng nghe event resize của trình duyệt, gọi tới hàm handleResize
