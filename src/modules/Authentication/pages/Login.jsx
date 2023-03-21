@@ -8,7 +8,6 @@ import { login } from "../slices/authSlice";
 import scss from "./style.module.scss";
 import { useEffect } from "react";
 
-
 const Login = () => {
   const {
     handleSubmit,
@@ -54,7 +53,7 @@ const Login = () => {
     try {
       // chờ cho action login thành công
       await dispatch(login(values)).unwrap();
-      navigate("/")
+      navigate("/");
       // Chuyển user về trang home
       notification.success({
         message: "Đăng nhập thành công",
@@ -67,12 +66,11 @@ const Login = () => {
     }
   };
 
-  const handleClick = () =>{
-    navigate("/register")
-  }
-  
+  const handleClick = () => {
+    navigate("/register");
+  };
+
   useEffect(() => {
-  
     document.body.style.background =
       "linear-gradient(120deg, #2980b9, #8e44ad)";
     return () => {
@@ -86,74 +84,73 @@ const Login = () => {
   }
 
   return (
-  <div className={scss.bg}>
-      <div className={scss.contain2} >
-      <h1 className="mb-3 ">Login</h1>
-      <div  >
-        <Form
-          
-          onFinish={handleSubmit(onSubmit)}
-          
-        >
-          <Controller
-            name="taiKhoan"
-            control={control}
-            rules={{
-              required: {
-                value: true,
-                message: "Tài khoản không được để trống",
-              },
-            }}
-            render={({ field, fieldState: { error } }) => (
-              <Form.Item
-                
-                label="Tài khoản"
-                validateStatus={error ? "error" : ""}
-                help={error?.message}
-              >
-                <Input type="text" {...field} className={scss.input} />
-              </Form.Item>
-            )}
-          />
+    <div className={scss.bg}>
+      <div className={scss.contain2}>
+        <h1 className="mb-3 ">Login</h1>
+        <div>
+          <Form onFinish={handleSubmit(onSubmit)}>
+            <Controller
+              name="taiKhoan"
+              control={control}
+              rules={{
+                required: {
+                  value: true,
+                  message: "Tài khoản không được để trống",
+                },
+              }}
+              render={({ field, fieldState: { error } }) => (
+                <Form.Item
+                  label="Tài khoản"
+                  validateStatus={error ? "error" : ""}
+                  help={error?.message}
+                >
+                  <Input type="text" {...field} className={scss.input} />
+                </Form.Item>
+              )}
+            />
 
-          <Controller
-            
-            name="matKhau"
-            control={control}
-            rules={{
-              required: {
-                value: true,
-                message: "Mật khẩu không được để trống",
-              },
-            }}
-            render={({ field, fieldState: { error } }) => (
-              <Form.Item
-                  style={{marginBottom:"35px"}}
-                label="Mật khẩu"
-                validateStatus={error ? "error" : ""}
-                help={error?.message}
-              >
-                <Input type="password" {...field} />
-              </Form.Item>
-            )}
-          />
+            <Controller
+              name="matKhau"
+              control={control}
+              rules={{
+                required: {
+                  value: true,
+                  message: "Mật khẩu không được để trống",
+                },
+              }}
+              render={({ field, fieldState: { error } }) => (
+                <Form.Item
+                  style={{ marginBottom: "35px" }}
+                  label="Mật khẩu"
+                  validateStatus={error ? "error" : ""}
+                  help={error?.message}
+                >
+                  <Input type="password" {...field} />
+                </Form.Item>
+              )}
+            />
 
-          <Form.Item style={{textAlign:"center",marginTop:"10px"}} wrapperCol={{ offset: 0 }}>
-            <Button
-              type="primary"
-              htmlType="submit"
-              disabled={isLoading}
-              loading={isLoading}
-              className="me-3 "
+            <Form.Item
+              style={{ textAlign: "center", marginTop: "10px" }}
+              wrapperCol={{ offset: 0 }}
             >
-              Đăng Nhập
-            </Button>
-            <a href="" onClick={handleClick}>Đăng ký</a>
-          </Form.Item>
-        </Form>
+              <Button
+                type="primary"
+                htmlType="submit"
+                disabled={isLoading}
+                loading={isLoading}
+                className="me-3 "
+              >
+                Đăng Nhập
+              </Button>
+              <a href="" onClick={handleClick}>
+                Đăng ký
+              </a>
+            </Form.Item>
+          </Form>
+        </div>
       </div>
     </div>
-  </div>
   );
 };
 
