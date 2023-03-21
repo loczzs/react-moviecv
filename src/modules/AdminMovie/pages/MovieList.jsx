@@ -16,6 +16,7 @@ import { useDispatch } from "react-redux";
 import { useEffect,useState } from "react";
 import { logout } from "modules/Authentication/slices/authSlice";
 import { ExclamationCircleOutlined,LogoutOutlined } from "@ant-design/icons";
+import useWindowSize from "hooks/useWindowsize";
 import {
   DeleteMovie,
   getDetail,
@@ -32,6 +33,7 @@ const MovieList = () => {
   const dispatch = useDispatch();
   const { movies, isLoading, error } = useSelector((state) => state.movie);
  
+  const {width} = useWindowSize()
 
   useEffect(() => {
     dispatch(getMovie());
@@ -535,7 +537,7 @@ const MovieList = () => {
           }}
         >
        
-          <Table columns={columns} dataSource={[...movies].reverse()} />
+          <Table columns={width < 815 ? devicecolums:columns} dataSource={[...movies].reverse()} />
         </Content>
         <Footer
           style={{

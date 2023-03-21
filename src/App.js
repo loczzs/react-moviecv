@@ -5,7 +5,7 @@ import MainLayout from "components/MainLayout";
 import AuthLayout from "components/AuthLayout";
 import CheckoutRoute from "routes/CheckoutRoute";
 import AdminRoute from "routes/AdminRoute";
-
+import Spiner from "spiner";
 // import AddUser from "modules/AdminMovie/pages/AddUser";
 // import addUser from "modules/AdminMovie/pages/addUser";
 // import addUser from "modules/AdminMovie/addUser";
@@ -36,7 +36,7 @@ function App() {
   
     // Suspense: hiển thị fallback UI (Loading) khi các file JS của một page đang được tải về
     <Suspense 
-    
+    fallback={<Spiner />}
     >
     
       <Routes>

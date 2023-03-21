@@ -13,12 +13,14 @@ import { Button, Modal, Space, Table, Tag } from "antd";
 import scss from "./style.module.scss";
 import scss2 from "./styles.module.scss"
 import { UpdateUsers } from "modules/Home/slices/useradSlice";
-
+import useWindowSize from "hooks/useWindowsize";
 import { ExclamationCircleOutlined ,LogoutOutlined} from "@ant-design/icons";
 
 const { Header, Sider, Content, Footer } = Layout;
 const { confirm } = Modal;
 const UserList = () => {
+  const {width} = useWindowSize()
+
   const dispatch = useDispatch();
   const { users } = useSelector((state) => state.user);
   useEffect(() => {
@@ -446,7 +448,7 @@ const UserList = () => {
             background: "white",
           }}
         >
-          <Table columns={columns} dataSource={[...users]?.reverse()} />
+          <Table columns={width <900 ?devicecolumns: columns} dataSource={[...users]?.reverse()} />
         </Content>
         <Footer
           style={{
