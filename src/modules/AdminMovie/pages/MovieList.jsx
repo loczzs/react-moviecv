@@ -535,7 +535,7 @@ const MovieList = () => {
           }}
         >
        
-          <Table columns={devicecolums} dataSource={[...movies].reverse()} />
+          <Table columns={columns} dataSource={[...movies].reverse()} />
         </Content>
         <Footer
           style={{

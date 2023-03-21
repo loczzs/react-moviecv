@@ -8,7 +8,7 @@ import { message } from "antd";
 import { getLayGhe } from "../slices/LayDanhSachGhe";
 
 const SeatDetail = ({ ThongTinPhim }) => {
-  console.log(ThongTinPhim);
+
   const { DanhSachGheDangDat } = useSelector((state) => state.giohang);
 
   const { ticketId } = useParams();

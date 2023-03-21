@@ -30,32 +30,7 @@ const data = [
 
 const Banner = () => {
   const {width} = useWindowSize()
-  // const dispatch = useDispatch();
-  // const { banners, isLoading, error } = useSelector((state) => state.banner);
-  // useEffect(() => {
-  //   dispatch(getBanners());
-  // }, []);
-
-  // const {
-  //   data: banners,
-  //   isLoading,
-  //   error,
-  // } = useRequest(() => movieAPI.getBanners());
-  // vd , mảng trailers
-  // const bannersMapped = banners?.map((banner, index) => {
-  //   return { ...banner, trailer: TRAILERS[index] };
-  // });
-  // console.log(banners);
-  // console.log(bannersMapped);
-  // const [color,setColer]=useState("red")
-  // const mycolor = ["yelow","blue","gray"]
-  // main()
-  //  function main(params) {
-  //   setTimeout(() => {
-  //     const coloz= mycolor[Math.floor(Math.random() * mycolor.length)]
-  //     setColer(coloz)
-  //    }, 1000);
-  //  }
+  
   const [Banner, setBanner] = useState(
     data[Math.floor(Math.random() * data?.length)]
   );
@@ -66,11 +41,17 @@ const Banner = () => {
   const ref = useRef(data[Math.floor(Math.random() * data?.length)]);
 
   useEffect(() => {
-    setInterval(() => {
+    const intervalId = setInterval(() => {
       const bannerz = data[Math.floor(Math.random() * data.length)];
 
       setBanner(() => bannerz);
-    }, 10000);
+           
+       
+   }, 3000);
+   return () => {
+     intervalId && clearInterval(intervalId);
+   };
+    
    
    
   }, []);

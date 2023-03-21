@@ -17,7 +17,7 @@ const Ticket = () => {
     (state) => state.danhsachghe
   );
   const { danhSachGhe, thongTinPhim } = ThongTinPhim;
-  console.log(thongTinPhim);
+ 
 
   useEffect(() => {
     dispatch(getLayGhe(ticketId));
